@@ -1,0 +1,65 @@
+.portada-privacidad {
+    margin-top: 10%;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Ajusta la altura como desees */
+    overflow: hidden; /* Evita que el contenido sobresalga */
+}
+
+.portada-privacidad img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir toda la sección */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Asegura que la imagen esté detrás del texto */
+}
+
+.portada-privacidad .cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Alinea el texto al centro */
+    color: white; /* Color del texto */
+}
+
+.portada-privacidad h1 {
+    
+    font-weight: bold;
+    font-size: 4rem; /* Tamaño de la fuente del título */
+    margin-bottom: 20px; /* Espaciado inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+}
+
+.cuerpo-privacidad{
+    text-align: center;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.titulo-privacidad{
+    font-size: 2rem;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    text-align:  left;
+    font-weight: bold;
+}
+
+.texto-secundario-privacidad{
+    padding-bottom: 2%;
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.texto-principal-privacidad{
+    margin-bottom: 3%;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+

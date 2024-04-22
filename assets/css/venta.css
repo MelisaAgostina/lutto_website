@@ -1,0 +1,78 @@
+
+.portada-venta {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Esto asegura que la portada ocupe toda la altura de la ventana */
+    overflow: hidden; /* Esto asegura que el video no se desborde */
+}
+
+.portada-venta video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto ajusta el video para que cubra todo el contenedor */
+}
+
+.portada-venta h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Esto centra el texto vertical y horizontalmente */
+    color: white; /* Color del texto */
+    font-size: 4rem; /* Tamaño de fuente */
+    font-weight: bold;
+    text-align: center; /* Alineación del texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+    z-index: 1; /* Asegura que el texto esté sobre el video */
+}
+
+    .cover-text p {
+        font-size: 1.2rem; /* Tamaño del texto */
+    }
+
+    .titulo-venta-principal,
+    .texto-venta-principal{
+        text-align: center;
+        margin-top: 2%;
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+
+    .texto-venta-principal {
+        font-size: 1.5rem;
+        line-height: 3rem;
+    }
+
+    .titulo-venta-principal{
+        font-weight: bold;
+        
+        padding-bottom: 2%;
+    }
+
+.venta-cuerpo img{
+    /* Estilos para la imagen */
+    width: 300px; /* Establece el ancho deseado */
+    height: auto; /* Mantiene la proporción original */
+    display: block; /* Asegura que la imagen sea un elemento de bloque */
+    margin: 0 auto; /* Centra horizontalmente la imagen */
+}
+
+
+    .texto-venta-secundario{
+        text-align: justify;
+        padding-right: 10%;
+        padding-left: 10%;
+        font-size: 1.2rem; 
+    }
+
+    .titulo-venta-secundario{
+        
+        font-weight: bold;
+        padding-left: 10%;
+    }
+
+   

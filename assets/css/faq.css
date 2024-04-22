@@ -1,0 +1,120 @@
+.portada-faq {
+    margin-top: 10%;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Ajusta la altura como desees */
+    overflow: hidden; /* Evita que el contenido sobresalga */
+}
+
+.portada-faq img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir toda la sección */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Asegura que la imagen esté detrás del texto */
+}
+
+.portada-faq .cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Alinea el texto al centro */
+    color: white; /* Color del texto */
+}
+
+.portada-faq h1 {
+    
+    font-weight: bold;
+    font-size: 4rem; /* Tamaño de la fuente del título */
+    margin-bottom: 20px; /* Espaciado inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+}
+
+.cuerpo-faq{
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-top: 5%;
+    padding-bottom: 0%;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
+.texto-faq-color{
+    
+    color: #000000;
+}
+
+.acordeones{
+    padding-bottom: 5%;
+    padding-top: 3%;
+    
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.acordeon-faq{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.titulo-acordeon{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.accordion-item .faq-pregunta{
+    line-height: 3rem;
+}
+
+
+  .accordion-item {
+    margin-bottom: 10px; /* Espacio entre cada pregunta y respuesta */
+  }
+  
+  /* Estilo para las preguntas */
+  .faq-pregunta {
+    background-color: #fad6ae; /* Color de fondo para preguntas */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 15px; /* Espacio interno */
+    margin-bottom: 5px; /* Espacio entre preguntas */
+  }
+ 
+  /* Estilo para las respuestas */
+  .faq-respuesta {
+    background-color: #ebdec7; /* Color de fondo para respuestas */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 10px; /* Espacio interno */
+  }
+  .faq-respuesta a{
+    color: #000000;
+  }
+
+  .faq-respuesta a:hover{
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  .texto-faq a{
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .texto-faq a:hover{
+    color: #000000;
+    text-decoration: underline;
+  }
+  
+
+  /* Quita los bordes y estilos por defecto de los botones */
+  .accordion-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  
+

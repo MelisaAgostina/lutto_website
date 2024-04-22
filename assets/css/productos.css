@@ -1,0 +1,276 @@
+
+.products{
+   background-image: url(../img/fondo3.jpg) ;
+   background-size: cover;
+   background-position: center;
+}
+
+.portada-productos {
+   z-index: 999;
+   margin-top: 10%;
+   margin-bottom: 5%;
+   position: relative;
+   width: 100%;
+   height: 70vh; /* Esto asegura que la portada ocupe toda la altura de la ventana */
+   overflow: hidden; /* Esto asegura que el video no se desborde */
+}
+
+.portada-productos video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover; /* Esto ajusta el video para que cubra todo el contenedor */
+}
+
+.portada-productos h1 {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%); /* Esto centra el texto vertical y horizontalmente */
+   color: white; /* Color del texto */
+   font-size: 4rem; /* Tamaño de fuente */
+   font-weight: bold;
+   text-align: center; /* Alineación del texto */
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+   z-index: 1; /* Asegura que el texto esté sobre el video */
+}
+
+   .cover-text p {
+       font-size: 1.2rem; /* Tamaño del texto */
+   }
+
+.container-productos-general{
+    max-width: 1200px;
+    margin:0 auto;
+    padding:3rem 2rem;
+ }
+ 
+ .container-productos-general .title{
+    font-size: 3.5rem;
+    color:#444;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+ }
+ 
+ .container-productos-general .products-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+ }
+ 
+ .container-productos-general .products-container .product{
+    text-align: center;
+    padding:3rem 2rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+ }
+ 
+ .container-productos-general .products-container .product:hover{
+    outline: .2rem solid #222;
+    outline-offset: 0;
+ }
+ 
+ .container-productos-general .products-container .product img{
+    height: 25rem;
+ }
+ 
+ .container-productos-general .products-container .product:hover img{
+    transform: scale(.9);
+ }
+ 
+ .container-productos-general .products-container .product .nombre-prod{
+    padding:.5rem 0;
+    font-size: 2rem;
+    color:#444;
+ }
+ 
+ .container-productos-general .products-container .product:hover .nombre-prod{
+    color:#27ae60;
+ }
+ 
+ .container-productos-general .products-container .product .price{
+    font-size: 2rem;
+    color:#444;
+ }
+ 
+ .products-preview{
+   z-index: 1000;
+    position: fixed;
+    top:0; left:0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .products-preview .preview{
+    display: none;
+    padding:2rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin:2rem;
+    width: 40rem;
+ }
+ 
+ .products-preview .preview.active{
+    display: inline-block;
+ }
+ 
+ .products-preview .preview img{
+    height: 20rem;
+ }
+ 
+ .products-preview .preview .fa-times{
+    position: absolute;
+    top:1rem; right:1.5rem;
+    cursor: pointer;
+    color:#444;
+    font-size: 4rem;
+ }
+ 
+ .products-preview .preview .fa-times:hover{
+    transform: rotate(90deg);
+ }
+ 
+ .products-preview .preview .nombre-prod{
+    color:#444;
+    padding:.5rem 0;
+    font-size: 2.5rem;
+ }
+ 
+ .products-preview .preview .stars{
+    padding:1rem 0;
+    font-size: 1.7rem;
+ }
+ 
+ .products-preview .preview .stars i{
+    color:#27ae60;
+ }
+ 
+ .products-preview .preview .stars span{
+    color:#999;
+ }
+ 
+ .products-preview .preview .texto-prod{
+    line-height: 1.5;
+    padding:1rem 0;
+    font-size: 1.6rem;
+    color:#777;
+ }
+ 
+ .products-preview .preview .price{
+    padding:1rem 0;
+    font-size: 2.5rem;
+    color:#27ae60;
+ }
+ 
+ .products-preview .preview .buttons{
+    display: flex;
+    gap:1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+ }
+ 
+ .products-preview .preview .buttons a{
+    flex:1 1 16rem;
+    padding:1rem;
+    font-size: 1.8rem;
+    color:#444;
+    border:.1rem solid #444;
+ }
+ 
+ .products-preview .preview .buttons a.cart{
+    background: #444;
+    color:#fff;
+ }
+ 
+ .products-preview .preview .buttons a.cart:hover{
+    background: #111;
+ }
+ 
+ .products-preview .preview .buttons a.buy:hover{
+    background: #444;
+    color:#fff;
+ }
+ 
+ @media (min-width: 991px) {
+   .products-preview{
+      max-height: 0vh;
+   }
+ 
+}
+
+/*FORMULARIO CONSULTAS*/
+.consulta-prod{
+   padding-left:20% ;
+   font-weight: 700;
+   font-size: 1.5rem;
+}
+.products .fila{
+   display: flex;
+   flex-wrap: wrap-reverse;
+   gap: 1.5rem;
+   align-items: center;
+   padding: 20%;
+   padding-bottom: 3%;
+   padding-top: 0%;
+}
+
+.products .fila form{
+   flex:1 1 40rem;
+   padding: 2rem 2.5rem;
+   box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+   border: .2rem solid rgba(0, 0, 0, .1);
+   background: #fff;
+   border-radius: .5rem;
+}
+
+.products .fila .imagen-contacto{
+   flex:1 1 40rem;
+}
+
+.products .fila .imagen-contacto img{
+   width: 108%; /*109 contact1*/
+}
+
+.products .fila form .box{
+   padding: 1rem;
+   font-size: 1.7rem;
+   color: #1B2C34;
+   text-transform: none;
+   border: .1rem solid rgba(0, 0, 0, .1);
+   border-radius: .5rem;
+   margin: .7rem 0;
+   width: 100%;
+}
+
+.products .fila form .box:focus{
+   border-color:#1B2C34;
+}
+
+.products .fila form textarea{
+   height:15rem;
+   resize: none;
+}
+
+.products .btn{
+   color: antiquewhite;
+   background-color: #627883;
+   border-radius: 8%;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+.products .btn:hover {
+   background-color: #879aaf; /* Cambia el color de fondo cuando se pasa el cursor por encima */
+}
+

@@ -1,0 +1,159 @@
+
+/*TEXTO*/
+.contenido-contacto{
+    margin-top: 5%;
+}
+.contacto .contenido-contacto .titulo-contacto-oficinas {
+    margin-top: 5%;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.contenido-contacto .titulo-contacto, .texto-contacto{
+    margin-top: 2%;
+    font-size: 1.5rem;
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+
+/*OFICINAS*/
+.row-cols-md-2 {
+    /* Asegura que las columnas se distribuyan en dos en dispositivos de tamaño mediano o superior */
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: space-around;
+
+  }
+  
+  /* Estilos para las columnas */
+  .col {
+    /* Ajusta el tamaño de la columna para dispositivos de tamaño mediano o superior */
+    flex: 0 0 50%;
+    max-width: 30%;
+  }
+  
+  /* Estilos para las tarjetas */
+  .card-o {
+    /* Ajusta los márgenes entre las tarjetas */
+    margin-bottom: 20px;
+  }
+
+  .card-o .card-text-of .card-title-of{
+    line-height: 2rem;
+  }
+
+  .card-o img{
+    padding-bottom:3%;
+    width: 520px;
+    height: 490px;
+  }
+
+
+.card-body-of:last-child, .card-title, .card-text {
+    font-size: 1.3rem;
+    padding-left: 0%;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+/*FORMULARIO*/
+.contacto .fila{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 10%;
+    padding-bottom: 3%;
+    padding-top: 5%;
+}
+
+.contacto .fila form{
+    flex:1 1 40rem;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    border: .2rem solid rgba(0, 0, 0, .1);
+    background: #fff;
+    border-radius: .5rem;
+}
+
+.contacto .fila .imagen-contacto{
+    flex:1 1 40rem;
+}
+
+.contacto .fila .imagen-contacto img{
+    width: 108%; /*109 contact1*/
+}
+
+.contacto .fila form .box{
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #1B2C34;
+    text-transform: none;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    margin: .7rem 0;
+    width: 100%;
+}
+
+.contacto .fila form .box:focus{
+    border-color:#1B2C34;
+}
+
+.contacto .fila form textarea{
+    height:15rem;
+    resize: none;
+}
+
+.contacto .btn{
+    color: antiquewhite;
+    background-color: #627883;
+    border-radius: 8%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.contacto .btn:hover {
+    background-color: #879aaf; /* Cambia el color de fondo cuando se pasa el cursor por encima */
+}
+
+/*PORTADA*/
+.portada-contacto {
+    margin-top: 10%;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Ajusta la altura como desees */
+    overflow: hidden; /* Evita que el contenido sobresalga */
+}
+
+.portada-contacto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir toda la sección */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Asegura que la imagen esté detrás del texto */
+}
+
+.portada-contacto .cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Alinea el texto al centro */
+    color: white; /* Color del texto */
+}
+
+.portada-contacto h1 {
+    font-size: 4rem; /* Tamaño de la fuente del título */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espaciado inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+}
+

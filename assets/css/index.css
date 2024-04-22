@@ -1,0 +1,490 @@
+/*NAVBAR*/
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #efe9e1;
+    padding: 2rem 9%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  }
+  
+  header .logo img {
+    width: 100%; /* Ajusta este valor según sea necesario */
+    height: auto; /* Mantenimiento de la proporción */
+  }
+  
+  
+  header .logo{
+    max-width: 190px;
+  }
+  
+  header .logo span{
+    color: #1B2C34;
+  }
+  
+  header .navbar a {
+    align-items: end;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Raleway';
+    padding: 0 1.5rem;
+    color:#1B2C34;
+  }
+  
+  .navbar{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.navigation-container{
+  width: 100%;
+}
+
+
+  header .navbar a:hover{
+    color:var(--pink);
+  }
+  
+  header #toggler{
+    display: none;
+  }
+  
+  header .fa-paw{
+    font-size: 3rem;
+    color: #1B2C34;
+    border-color: transparent;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .navigation-container {
+    display: flex; /* Utilizamos flexbox para alinear los elementos */
+    align-items: center; /* Centramos verticalmente los elementos */
+    ;
+  }
+  
+  /*CARRUSEL*/
+  #carouselExampleFade {
+    width: 100%; /* El carrusel será tan ancho como la página */
+    margin-top: 10%; /* Espacio entre la barra de navegación y el carrusel */
+  }
+  
+  .carousel-inner img {
+    width: 100%; /* Asegura que las imágenes se estiren para cubrir el ancho */
+    height: 70vh; /* Establece el alto del carrusel al 100% de la altura de la ventana de visualización QUIZAS CAMBIAR A 80VH*/
+    object-fit: cover; /* Las imágenes cubren el área designada sin perder sus proporciones */
+  }
+  
+  .carousel-caption-top {
+    top: 10%;
+    bottom: auto;
+    left: 100px;
+  }
+  
+  .carousel-caption-bottom {
+    
+    bottom: 70%;
+  }
+
+  /* Estilos generales para mejorar la visibilidad de las captions */
+  .carousel-caption p {
+    background-color: transparent;
+    margin-left: 6rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
+    color: #f1ede7;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif; /* Agregué una fuente de respaldo */
+    text-align: justify;
+  }
+  
+  
+  
+  .carousel-caption h2 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
+    color: #f1ede7;
+    margin-left: 6rem;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: 30px; /* Aumenta el tamaño de la fuente para los títulos */
+    font-style: normal; /* Estilo de la fuente normal para evitar cursiva en los títulos, si es que se aplicó al caption */
+  }
+  
+  /*media queries*/
+  @media (max-width: 991px){
+    html{
+      font-size: 55%;
+    }
+  
+    header{
+      padding: 2rem;
+    }
+
+    .carousel-caption-top,
+    .carousel-caption-bottom {
+      padding: 10px; /* Reduce el espacio interno en pantallas más pequeñas */
+      padding-left: 0px;
+      padding-top: 20%;
+    }
+
+    .carousel-caption h2,
+    .carousel-caption p {
+      font-size: 1.2rem; /* Reduce el tamaño del texto en pantallas más pequeñas */
+    }
+
+ 
+  }
+  
+  @media (max-width: 768px){
+    header .fa-paw{
+      display: block;
+    }
+  
+    header .navbar{
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: #efe9e1;
+      border-top: .1rem solid rgba(0, 0, 0, .1);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    
+    .navbar{
+
+      flex-flow: column;
+      align-items: initial;
+
+    }
+  
+    header #toggler:checked ~ .navbar{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    
+    header .navbar a{
+      margin: 1.5rem;
+      padding: 1.5rem;
+      background: #efe9e1;
+      border: .1rem solid rgba(0, 0, 0, .1);
+      display: block;
+    }
+  
+    .carousel-caption-top,
+    .carousel-caption-bottom {
+      padding: 10px; /* Reduce el espacio interno en pantallas más pequeñas */
+      padding-left: 0px;
+      padding-top: 30%;
+    }
+  
+    .carousel-caption h2,
+    .carousel-caption p {
+      font-size: 1rem; /* Reduce aún más el tamaño del texto en pantallas más pequeñas */
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 450px){
+    html{
+      font-size: 50%;
+    }
+
+ 
+    .carousel-caption h2,
+    .carousel-caption p {
+      font-size: 0.8rem; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
+      margin-left: 0;
+    }
+
+    .d-md-block {
+      display: block !important;
+    }
+  }
+
+  .d-md-block {
+    display: block !important;
+  }
+  
+  /*TEXTO GENERAL*/
+  .descrip {
+    color: #1B2C34;
+    margin-top: 5%;
+    text-align: center;
+    line-height: 300%;
+    padding: 15%;
+    padding-top: 2%;
+    padding-bottom: 3%;
+  }
+
+  .descrip .texto-index{
+    padding-bottom: 2%;
+    font-family: 'Quicksand';
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: black;
+   
+  }
+  .descrip .titulo-descrip-index {
+    padding-bottom: 2%;
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: 2.1rem;
+  }
+
+  
+  /*CARDS*/
+  .card-container {
+    overflow: hidden; /* Clearfix para evitar colapsar el contenedor */
+    text-align: center;
+  }
+  
+  .card {
+    width: 18rem !important; 
+    border: transparent;
+    display: inline-block;
+    vertical-align: top; /* Alinea las tarjetas en la parte superior */
+    margin-right: 2%; /* Espacio entre las tarjetas */
+    margin-left: 2%;
+  
+    /*Transicion*/
+    opacity: 0; /* Inicialmente oculta las tarjetas */
+    transform: translateY(50px); /* Desplaza las tarjetas hacia abajo */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transición de opacidad y transformación */
+  }
+  
+  .card h5 {
+    font-family: 'Lexend Deca';
+    text-align: center;
+    padding: 0%;
+  }
+  
+  .card p{
+    font-family: 'Quicksand';
+    font-size: 1rem;
+    text-align: center;
+    padding: 0%;
+  }
+  
+  .card img{
+    vertical-align: middle;
+  }
+  
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3) {
+    transition-delay: 0.5s; /* Retrasa la animación de todas las tarjetas */
+  }
+  
+  .card.show {
+    opacity: 1; /* Muestra las tarjetas */
+    transform: translateY(0); /* Restablece la posición */
+  }
+  
+/*OPINIONES Y RECOMENDACIONES*/
+.recomendaciones{
+  padding: 40px 0;
+  color: #1B2C34;
+  text-align: center;
+}
+
+.titulo-rec{
+  padding-bottom: 2%;
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-size: 2.1rem;
+}
+.inner{
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.border{
+  width: 160px;
+  height: 5px;
+  background: #6ab04c;
+  margin: 26px auto;
+}
+.row-rec{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-rec{
+  flex: 33.33%;
+  max-width: 33.33%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.rec{
+  background: #d6e4ff7e;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.rec img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name-rec{
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 960px){
+
+.col-rec{
+  flex: 100%;
+  max-width: 80%;
+}
+
+}
+
+@media screen and (max-width: 600px){
+
+  .col-rec{
+    flex: 100%;
+    max-width: 80%;
+  }
+  
+}
+
+/*PRODUCTOS DESTACADOS*/
+.portada-destacados {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  position: relative;
+  width: 100%;
+  height: 50vh; /* Ajusta la altura como desees */
+  overflow: hidden; /* Evita que el contenido sobresalga */
+}
+
+.portada-destacados img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir toda la sección */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Asegura que la imagen esté detrás del texto */
+}
+
+.portada-destacados .cover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Alinea el texto al centro */
+  color: white; /* Color del texto */
+}
+
+.portada-destacados h1 {
+  
+  font-weight: bold;
+  font-size: 4rem; /* Tamaño de la fuente del título */
+  margin-bottom: 20px; /* Espaciado inferior */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+}
+.container-prod-destacados{
+  padding-left: 15%;
+  padding-right: 15%;
+  padding:15px 9%;
+  padding-bottom: 100px;
+}
+
+
+.container-prod-destacados .box-container-destacados{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap:15px;
+}
+
+.container-prod-destacados .box-container-destacados .box-destacados{
+  box-shadow: 10px 5px 10px rgba(0,0,0,.2);
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  padding:30px 20px;
+}
+
+.container-prod-destacados .box-container-destacados .box-destacados img{
+  height: 80px;
+}
+
+.container-prod-destacados .box-container-destacados .box-destacados .subtitulo.destacados{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color:#444;
+  font-size: 22px;
+  padding:10px 0;
+}
+
+.container-prod-destacados .box-container-destacados .box-destacados .texto-destacados{
+  color:#777;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.container-prod-destacados .btn a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.container-prod-destacados .box-container-destacados .box-destacados .btn{
+  margin-top: 10px;
+  display: inline-block;
+  background:#333;
+  color:#fff;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 8px 25px;
+}
+
+.container-prod-destacados .box-container-destacados .box-destacados .btn:hover{
+  letter-spacing: 1px;
+}
+
+.container-prod-destacados .box-container-destacados .box:hover{
+  box-shadow: 0 10px 15px rgba(0,0,0,.3);
+  transform: scale(1.03);
+}
+
+@media (max-width:768px){
+  .container-prod-destacados{
+      padding:20px;
+  }
+}
+
+/*EQUIPO*/
+.border2{
+  width: 1500px;
+  height: 1px;
+  background: #313131;
+  margin: 26px auto;
+}
+.descrip img {
+  /* Estilos para la imagen */
+  max-width: 100%; /* Asegura que la imagen no supere el ancho del contenedor */
+  height: auto; /* Mantiene la proporción original */
+  display: block; /* Asegura que la imagen sea un elemento de bloque */
+  margin: 0 auto; /* Centra horizontalmente la imagen */
+}
+
+@media (max-width: 768px) {
+  .descrip img {
+    /* Estilos para la imagen en pantallas de hasta 768px */
+    width: 100%; /* Establece el ancho al 100% del contenedor */
+  }
+}
