@@ -212,6 +212,7 @@
 /*FORMULARIO CONSULTAS*/
 .consulta-prod{
    padding-left:20% ;
+   padding-right: 20%;
    font-weight: 700;
    font-size: 1.5rem;
 }
@@ -224,6 +225,7 @@
    padding-bottom: 3%;
    padding-top: 0%;
 }
+
 
 .products .fila form{
    flex:1 1 40rem;

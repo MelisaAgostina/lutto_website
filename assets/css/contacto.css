@@ -55,6 +55,11 @@
     height: 490px;
   }
 
+  @media (max-width: 768px){
+  .card-o img{
+    padding-bottom:3%;
+  }
+}
 
 .card-body-of:last-child, .card-title, .card-text {
     font-size: 1.3rem;
