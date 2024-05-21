@@ -58,7 +58,7 @@
 
             <!---DESCRIPCION--->
             <div class='descrip'>
-              <h2 class="titulo-descrip-index">¿Por qué elegirnos?</h1>
+              <h2 class="titulo-descrip-index" style="padding-top: 5%">¿Por qué elegirnos?</h1>
               <p class="texto-index">En Lutto, estamos comprometidos no solo a proporcionar productos de alta calidad, sino también un apoyo sincero a aquellos que están navegando el camino de la pérdida de una mascota. Creemos que cada mascota merece ser recordada con dignidad y amor, y es nuestro privilegio ayudarte a encontrar la manera perfecta de honrar su memoria.
             </p>
 
@@ -70,12 +70,59 @@
               <p class="texto-index">Entendemos que cada mascota ocupa un lugar único en tu corazón, y cada pérdida se siente profundamente. Es por eso que abordamos nuestro trabajo con empatía y comprensión, brindando un espacio seguro donde puedas explorar nuestras ofertas a tu propio ritmo, sabiendo que estamos aquí para apoyarte en cada paso del camino.
             </p>
 
-            <h2 class="titulo-descrip-index">¿Cuál es el proceso?</h1>
-            <p class="texto-index">Ya sea que tu mascota haya fallecido recientemente o estés preparándote para el momento inevitable, no dudes en contactarnos. Te ayudaremos a programar una cita, asegurando que tu querido compañero reciba el cuidado y el respeto que se merece.
-            </p>
             </div>
 
+        <!---PRODUCTOS DESTACADOS--->
+    
+          <div class="portada-destacados">
+            <img src="assets/img/carousel5.jpg" alt="Imagen de portada">
+            <div class="cover-text">
+                <h1>PRODUCTOS DESTACADOS</h1>
+            </div>
+        </div>
+
+        <div class='descrip'>
+              <p class="texto-index">Explora nuestra selección curada de productos destacados para rendir un homenaje significativo a tu querida mascota</p>
+              
+        </div>
+
+
+
+          <div class="container-prod-destacados">
+            <div class="box-container-destacados">
+
+                <div class="box-destacados">
+                    <img src="assets/img/joya1.png" alt="">
+                    <h3 class="subtitulo-destacados">Set de Oro Engravado</h3>
+                    <p class="texto-destacados">descrip</p>
+                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
+                </div>
+
+                <div class="box-destacados">
+                    <img src="assets/img/joya 2.png" alt="">
+                    <h3 class="subtitulo-destacados">Locket de Oro</h3>
+                    <p class="texto-destacados">descrip</p>
+                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
+                </div>
+
+                <div class="box-destacados">
+                    <img src="assets/img/joya3.png" alt="">
+                    <h3 class="subtitulo-destacados">Colgante</h3>
+                    <p class="texto-destacados">descrip</p>
+                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
+                </div>
+
+            </div>
+
+          </div>
+
+
           <!---STEPS / CARDS--->
+          <div class="descrip">
+          <h2 class="titulo-descrip-index">¿Cuál es el proceso?</h1>
+            <p class="texto-index">Ya sea que tu mascota haya fallecido recientemente o estés preparándote para el momento inevitable, no dudes en contactarnos. Te ayudaremos a programar una cita, asegurando que tu querido compañero reciba el cuidado y el respeto que se merece.
+            </p>
+          </div>
           <div class="card-container">
               <div class="card" style="width: 18rem;">
                   <img src="assets/img/step1.jpg" class="card-img-top" alt="...">
@@ -161,49 +208,7 @@
 
 
 
-          <!---PRODUCTOS DESTACADOS--->
-    
-          <div class="portada-destacados">
-            <img src="assets/img/carousel5.jpg" alt="Imagen de portada">
-            <div class="cover-text">
-                <h1>PRODUCTOS DESTACADOS</h1>
-            </div>
-        </div>
 
-        <div class='descrip'>
-              <p class="texto-index">Explora nuestra selección curada de productos destacados para rendir un homenaje significativo a tu querida mascota</p>
-              
-        </div>
-
-
-
-          <div class="container-prod-destacados">
-            <div class="box-container-destacados">
-
-                <div class="box-destacados">
-                    <img src="assets/img/joya1.png" alt="">
-                    <h3 class="subtitulo-destacados">Set de Oro Engravado</h3>
-                    <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
-                </div>
-
-                <div class="box-destacados">
-                    <img src="assets/img/joya 2.png" alt="">
-                    <h3 class="subtitulo-destacados">Locket de Oro</h3>
-                    <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
-                </div>
-
-                <div class="box-destacados">
-                    <img src="assets/img/joya3.png" alt="">
-                    <h3 class="subtitulo-destacados">Colgante</h3>
-                    <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
-                </div>
-
-            </div>
-
-          </div>
 
 
           <!---EQUIPO---->

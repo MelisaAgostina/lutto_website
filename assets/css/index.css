@@ -1,3 +1,9 @@
+.index{
+  background-image: url(../img/fondo.jpg) ;
+  background-size: cover;
+  background-position: center;
+}
+
 /*NAVBAR*/
 header{
     position: fixed;
@@ -39,6 +45,13 @@ header{
     display: flex;
     justify-content: end;
 }
+
+.dropdown-menu{
+  width: 350px;
+  padding-top: 15%;
+}
+
+
 
 .navigation-container{
   width: 100%;
@@ -142,6 +155,10 @@ header{
       font-size: 1.2rem; /* Reduce el tamaño del texto en pantallas más pequeñas */
     }
 
+    .dropdown-menu {
+      width: 200px;
+      padding-top: 15%;
+  }
  
   }
   
@@ -168,7 +185,41 @@ header{
     header #toggler:checked ~ .navbar{
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
+
+    .dropdown-menu[data-bs-popper] {
+     top: 65%;
+      left: 0;
+      margin-top: var(--bs-dropdown-spacer);
+  }
+
+  button.boton-usuario{
+    background: transparent;
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+    .dropdown{
+      margin: 1.5rem;
+      padding: 1.5rem;
+      background: #efe9e1;
+      border: .1rem solid rgba(0, 0, 0, .1);
+      display: block;
+    }
+
+    .dropdown-menu {
+      width: 90%; /* Ajusta el ancho del dropdown al 100% del contenedor */
+      padding-top: 0; /* Elimina el espacio superior en pantallas más pequeñas */
+    }
     
+    .dropdown-menu.show {
+      display: block;
+      width: 90%;
+  }
+
+    .dropdown-menu p {
+      margin: 0; /* Elimina el margen para los enlaces del dropdown */
+      text-align: center; /* Centra el texto en los enlaces del dropdown */
+    }
     header .navbar a{
       margin: 1.5rem;
       padding: 1.5rem;
@@ -192,6 +243,42 @@ header{
   }
   
   @media (max-width: 450px){
+    .dropdown{
+      margin: 1.5rem;
+      padding: 1.5rem;
+      background: #efe9e1;
+      border: .1rem solid rgba(0, 0, 0, .1);
+      display: block;
+    }
+
+    button.boton-usuario{
+      background: transparent;
+      font-size: 1.5rem;
+      padding: 0;
+    }
+
+    .dropdown-menu {
+      width: 90%; /* Ajusta el ancho del dropdown al 100% del contenedor */
+      padding-top: 0; /* Elimina el espacio superior en pantallas más pequeñas */
+      padding-bottom: 15%;
+    }
+
+    .dropdown-menu[data-bs-popper] {
+      top: 65%;
+      left: 0;
+      margin-top: var(--bs-dropdown-spacer);
+  }
+    .dropdown-menu.show {
+      display: block;
+      width: 70%;
+      padding: 0;
+  }
+  
+    .dropdown-menu p {
+      margin: 0; /* Elimina el margen para los enlaces del dropdown */
+      text-align: center; /* Centra el texto en los enlaces del dropdown */
+    }
+
     html{
       font-size: 50%;
     }
@@ -215,7 +302,7 @@ header{
   /*TEXTO GENERAL*/
   .descrip {
     color: #1B2C34;
-    margin-top: 5%;
+    /*margin-top: 5%;*/
     text-align: center;
     line-height: 300%;
     padding: 15%;
@@ -224,6 +311,7 @@ header{
   }
 
   .descrip .texto-index{
+    line-height: 250%;
     padding-bottom: 2%;
     font-family: 'Quicksand';
     text-align: center;
@@ -248,6 +336,7 @@ header{
   
   .card {
     width: 18rem !important; 
+    background: none;
     border: transparent;
     display: inline-block;
     vertical-align: top; /* Alinea las tarjetas en la parte superior */
@@ -328,7 +417,7 @@ header{
 }
 
 .rec{
-  background: #d6e4ff7e;
+  background: #c2d0ebd9 /*#d6e4ff7e*/;
   padding: 30px;
   border-radius: 12px;
 }
@@ -402,7 +491,7 @@ header{
   padding-left: 15%;
   padding-right: 15%;
   padding:15px 9%;
-  padding-bottom: 100px;
+  padding-bottom: 10px;
 }
 
 

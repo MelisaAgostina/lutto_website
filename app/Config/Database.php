@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'bd_acosta_juanagustin',
+        'database' => 'lezcanoairaldi_m',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

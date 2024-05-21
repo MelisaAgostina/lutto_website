@@ -1,0 +1,27 @@
+@media (max-width: 450px){
+  button.btn-carrito{
+    align-self: start;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    margin: 1.5rem;
+    padding: 0 1.5rem;
+    background: #efe9e1;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    display: block;
+  }
+}
+@media (max-width: 768px){
+    button.btn-carrito{
+        align-self: start;
+        padding: 1.5rem;
+      font-size: 1.5rem;
+      padding: 0 1.5rem;
+      margin: 1.5rem;
+      padding: 0 1.5rem;
+      background: #efe9e1;
+      border: .1rem solid rgba(0, 0, 0, .1);
+      display: block;
+    }
+    
+  }
