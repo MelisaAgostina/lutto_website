@@ -34,7 +34,7 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('index', 'Home::index');
 $routes->get('acercaDe', 'Home::acercaDe');
 $routes->get('contacto', 'Home::contacto');
-$routes->get('productos', 'Home::productos');
+$routes->get('productos_v', 'Home::productos_v');
 $routes->get('urnas', 'Home::urnas');
 $routes->get('joyeria', 'Home::joyeria');
 $routes->get('fotografia', 'Home::fotografia');
@@ -44,16 +44,7 @@ $routes->get('faq', 'Home::faq');
 $routes->get('login', 'Home::login');
 $routes->get('terminos', 'Home::terminos');
 $routes->get('registro', 'Home::registro');
-//usuarios
-$routes->get('addNew', 'Home::addNew');
-$routes->get('crud', 'Home::crud');
-$routes->get('delete', 'Home::delete');
-$routes->get('edit', 'Home::edit');
-//productos
-$routes->get('addNewP', 'Home::addNewP');
-$routes->get('crudP', 'Home::crudP');
-$routes->get('deleteP', 'Home::deleteP');
-$routes->get('editP', 'Home::editP');
+
 
 
 //Rutas para el controlador de productos
@@ -72,6 +63,17 @@ $routes->get('usuarios/edit/(:num)', 'usuarios_controller::edit/$1'); // Mostrar
 $routes->post('usuarios/update/(:num)', 'usuarios_controller::update/$1'); // Actualizar usuario
 $routes->get('usuarios/delete/(:num)', 'usuarios_controller::delete/$1'); // Eliminar usuario
 
+/*rutas para el manejo del carrito*/
+$routes->get('catalogo/(:num)', 'carrito_controller::catalogo/$1'); // Para ver el catálogo según categoría
+$routes->get('catalogo', 'carrito_controller::catalogo'); // Para ver el catálogo por defecto
+
+$routes->post('carrito/add', 'carrito_controller::add'); // Para agregar al carrito
+$routes->post('carrito/remove/(:any)', 'carrito_controller::remove/$1'); // Para remover del carrito
+$routes->get('carrito/view', 'carrito_controller::view'); // Para ver el carrito
+$routes->post('carrito/checkout', 'carrito_controller::checkout'); // Para realizar la compra
+$routes->get('carrito/vaciar', 'carrito_controller::vaciar'); // Para vaciar el carrito
+$routes->post('carrito/actualizar', 'carrito_controller::actualizar'); // Para actualizar el carrito
+
 /*rutas para el inicio de sesion*/
 $routes->get('/login', 'login_controller::index');
 $routes->post('/login/auth', 'login_controller::auth');
@@ -81,6 +83,9 @@ $routes->get('/logout', 'login_controller::logout');
 $routes->get('/registro','registro_controller::create', ['filter' => 'authAdmin']);
 $routes->post('/enviar-form','registro_controller::formValidation');
 
+/*Consultas*/
+$routes->get('consultas', 'consultas_controller::index');
+$routes->post('consultas/save', 'consultas_controller::save');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -97,4 +102,3 @@ $routes->post('/enviar-form','registro_controller::formValidation');
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
-$routes->get('/listar', 'Product::index');

@@ -9,12 +9,12 @@
         <div class="box-container-footer">
 
             <div class="box-footer">
-                <img src="assets/img/logo.png" alt="">
+                <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
             </div>
 
             <div class="box-footer">
                 <h3 class="titulo-box-footer">Quick links</h3>
-                <?php echo anchor('productos', 'Productos') ?>
+                <?php echo anchor('productos_v', 'Productos') ?>
                 <?php echo anchor('index', 'Inicio') ?>
                 <?php echo anchor('faq', 'Dudas Frecuentes') ?>
                 <?php echo anchor('contacto', 'Contacto') ?>
@@ -38,7 +38,7 @@
         <div class="box-container-footer">
 
             <div class="box-footer">
-                <img src="assets/img/logo.png" alt="">
+                <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
             </div>
 
             <div class="box-footer">

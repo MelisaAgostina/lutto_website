@@ -95,21 +95,21 @@
                     <img src="assets/img/joya1.png" alt="">
                     <h3 class="subtitulo-destacados">Set de Oro Engravado</h3>
                     <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('productos_v', 'ver más') ?></p>
                 </div>
 
                 <div class="box-destacados">
                     <img src="assets/img/joya 2.png" alt="">
                     <h3 class="subtitulo-destacados">Locket de Oro</h3>
                     <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('productos_v', 'ver más') ?></p>
                 </div>
 
                 <div class="box-destacados">
                     <img src="assets/img/joya3.png" alt="">
                     <h3 class="subtitulo-destacados">Colgante</h3>
                     <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('productos_v', 'ver más') ?></p>
                 </div>
 
             </div>

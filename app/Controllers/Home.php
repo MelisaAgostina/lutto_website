@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\productos_model;
+
 class Home extends BaseController
 {
    public function index() {
@@ -19,29 +21,43 @@ class Home extends BaseController
       echo view('front/footer');
    }
 
-   public function productos() {
+   public function productos_v() {
 
       echo view('front/header');
-      echo view('productos/productos');
+      echo view('productos/productos_v');
       echo view('front/footer');
    }
 
    public function urnas() {
 
+      // Instancia del modelo de usuarios
+      $model = new productos_model();
+
+      // Obtener todos los usuarios
+      $data['productos'] = $model->findAll();
+
       echo view('front/header');
-      echo view('productos/urnas');
+      echo view('productos/urnas', $data);
       echo view('front/footer');
    }
    public function joyeria() {
 
+      $model = new productos_model();
+
+      $data['productos'] = $model->findAll();
+
       echo view('front/header');
-      echo view('productos/joyeria');
+      echo view('productos/joyeria', $data);
       echo view('front/footer');
    }
    public function fotografia() {
 
+      $model = new productos_model();
+
+      $data['productos'] = $model->findAll();
+
       echo view('front/header');
-      echo view('productos/fotografia');
+      echo view('productos/fotografia', $data);
       echo view('front/footer');
    }
 
@@ -96,72 +112,6 @@ class Home extends BaseController
 
       echo view('front/header');
       echo view('usuarios/registro');
-      echo view('front/footer');
-
-   }
-
-   //usuarios
-
-   public function crud() {
-
-      echo view('front/header');
-      echo view('usuarios/crud');
-      echo view('front/footer');
-
-   }
-
-   public function addNew() {
-
-      echo view('front/header');
-      echo view('usuarios/addNew');
-      echo view('front/footer');
-
-   }
-
-   public function delete() {
-
-      echo view('front/header');
-      echo view('usuarios/delete');
-      echo view('front/footer');
-
-   }
-   public function edit() {
-
-      echo view('front/header');
-      echo view('usuarios/edit');
-      echo view('front/footer');
-
-   }
-
-   //productos
-
-   public function crudP() {
-
-      echo view('front/header');
-      echo view('productos/crudP');
-      echo view('front/footer');
-
-   }
-
-   public function addNewP() {
-
-      echo view('front/header');
-      echo view('productos/addNewP');
-      echo view('front/footer');
-
-   }
-
-   public function deleteP() {
-
-      echo view('front/header');
-      echo view('productos/deleteP');
-      echo view('front/footer');
-
-   }
-   public function editP() {
-
-      echo view('front/header');
-      echo view('productos/editP');
       echo view('front/footer');
 
    }

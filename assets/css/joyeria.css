@@ -75,7 +75,7 @@
      }
      
      .container-productos-general .products-container .product img{
-        height: 25rem;
+        height: 20rem;
      }
      
      .container-productos-general .products-container .product:hover img{
@@ -124,7 +124,7 @@
      }
      
      .products-preview .preview img{
-        height: 20rem;
+        height: 15rem;
      }
      
      .products-preview .preview .fa-times{

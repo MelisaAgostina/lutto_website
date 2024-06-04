@@ -29,14 +29,16 @@ class login_controller extends BaseController
         $data = $model->where('username', $username)->first(); //consulta sql 
 
         if($data){
+            
             $pass = $data['pass'];
                $ba= $data['baja'];
+
                 if ($ba == 'SI'){
                      $session->setFlashdata('msg', 'Usuario dado de baja');
                      return redirect()->to('/login_controller');
                  }
-                    //Se verifican los datos ingresados para iniciar, si cumple la verificaciòn inicia la sesion
-               $verify_pass = password_verify($password, $pass);
+                     //Se verifican los datos ingresados para iniciar, si cumple la verificaciòn inicia la sesion
+                     $verify_pass = password_verify($password, $pass);
 
                    //password_verify determina los requisitos de configuracion de la contraseña
                    if($verify_pass){
@@ -65,11 +67,12 @@ class login_controller extends BaseController
                  //no paso la validaciòn de la password
                $session->setFlashdata('msg', 'Contraseña incorrecta');
                 return redirect()->to('/login');
-         }   
-        }else{
+         }  
+
+         }else{
              //no paso la validaciòn del correo
-            $session->setFlashdata('msg', 'No existe el usuario o es incorrecto');
-            return redirect()->to('/login');
+             $session->setFlashdata('msg', 'No existe el usuario o es incorrecto');
+             return redirect()->to('/login');
       } 
     
   }

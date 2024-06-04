@@ -16,15 +16,13 @@
 
     <div class="fila">
       
-        <form action="">
-            <input type="text" placeholder="Nombres" class="box" required>
-            <input type="text" placeholder="Apellidos" class="box" required>
-            <input type="email" placeholder="Email" class="box" required>
-            <input type="number" placeholder="Número" class="box" required>
-            <input name="" placeholder="Código Postal" class="box" required></input>
-            <textarea name="" class="box" placeholder="Mensaje..." id="" cols="30" rows="10"></textarea>
+        <form action="<?php echo base_url('consultas/save'); ?>" method="post">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombres" class="box" required>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="box" required>
+            <input type="text" name="email" id="email" placeholder="Email" class="box" required>
+            <textarea type="text" name="mensaje" id="mensaje" class="box" placeholder="Mensaje..." id="" cols="30" rows="10"></textarea>
             <input type="submit" value="Enviar" class="btn">
-            <input type="submit" value="Limpiar" class="btn">
+            <button type="submit" class="btn" onclick="borrarTextArea()">Limpiar</button>
         </form>
 
     </div>
@@ -94,6 +92,18 @@
     
     <!---cierre contenido del medio--->
 
+    
+    <script>
+        function borrarTextArea() {
+            // Obtener todos los campos de texto en el formulario
+            var camposTexto = document.querySelectorAll('input[type="text"]');
+
+            // Iterar sobre cada campo de texto y limpiar su contenido
+            camposTexto.forEach(function(campo) {
+                campo.value = '';
+            });
+        }
+    </script>
    
 
 </section>

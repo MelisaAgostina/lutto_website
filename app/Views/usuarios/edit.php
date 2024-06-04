@@ -1,12 +1,12 @@
-<section>
-    <div class="container">
+<section class="edit">
+    <div class="container-edit">
         <div class="text-center mb-4">
             <h3>Editar Información del Usuario</h3>
             <p class="text-muted">Haga click en 'Guardar' para salvar los cambios.</p>
         </div>
 
         <div class="container d-flex justify-content-center">
-            <form action="<?php echo base_url('usuarios/update/' . $usuario['id_usuario']); ?>" method="post" style="width:50vw; min-width:300px;">
+            <form action="<?php echo base_url('usuarios/update/' . $usuario['id_usuario']); ?>" method="post" class="form-edit" style="padding-left: 7%; min-width:300px;">
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">Nombre:</label>
@@ -37,16 +37,27 @@
                         <label class="form-label">Teléfono:</label>
                         <input type="text" class="form-control" name="telefono" value="<?php echo $usuario['telefono']; ?>">
                     </div>
+
+                    <div class="col">
+                        <label class="form-label">Email:</label>
+                        <input type="email" class="form-control" style="width: 28.8vw" name="email" value="<?php echo $usuario['email']; ?>">
+                    </div>
+
+                    
+                    <!--- Opción para reactivar el usuario --->
+                    <?php if ($usuario['baja'] == 'SÍ'): ?>
+                        <div class="reactivar-user">
+                            <label class="form-label">Este usuario se encuentra dado de baja ¿Desea reactivarlo?</label>
+                            <input type="radio" name="baja" class="form-control-circle" value="SÍ">
+                        </div>
+                    <?php endif; ?>
+
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Email:</label>
-                    <input type="email" class="form-control" name="email" value="<?php echo $usuario['email']; ?>">
-                </div>
 
                 <div>
-                    <button type="submit" class="btn btn-success" name="submit">Guardar</button>
-                    <a href="<?php echo base_url('usuarios'); ?>" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn-guardar" name="submit">Guardar</button>
+                    <button href="<?php echo base_url('usuarios'); ?>" class="btn-cancelar">Cancelar</button>
                 </div>
             </form>
         </div>

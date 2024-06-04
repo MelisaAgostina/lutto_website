@@ -1,6 +1,7 @@
 .urnas{
     background-image: url(../img/fondo3.jpg) ;
     background-size: cover;
+    min-height: 170vh;
     background-position: center;
  }
  
@@ -74,8 +75,8 @@
         outline-offset: 0;
      }
      
-     .container-productos-general .products-container .product img{
-        height: 25rem;
+     .container-productos-general .products-container .product .img-urnas{
+        height: 20rem;
      }
      
      .container-productos-general .products-container .product:hover img{
@@ -124,7 +125,7 @@
      }
      
      .products-preview .preview img{
-        height: 20rem;
+        height: 15rem;
      }
      
      .products-preview .preview .fa-times{

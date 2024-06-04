@@ -1,0 +1,65 @@
+.index-crud{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 140vh;
+    background-image: url("../../img/contact1.jpg") ;
+    background-size: cover;
+    background-position: center;
+}
+.container-crud-index{
+    padding-top: 25%;
+    width: 750px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #5b6df9;  
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+/*tablas*/
+.table-productos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #000000;
+}
+
+.table-productos th,
+.table-productos td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+}
+
+.table-productos th{
+    background-color: #4f494941;
+   
+}
+.table-productos td{
+    background-color: aliceblue;
+}
+.table-productos-cabecera {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.table-productos-cuerpo tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-productos-cuerpo tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 768px) {
+    .container-crud-index{
+        max-width: 481px;
+    }
+    .table-productos {
+        width: 70%;
+    }
+    
+}
+
