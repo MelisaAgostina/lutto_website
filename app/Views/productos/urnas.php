@@ -15,7 +15,7 @@
         <div class="products-container">
 
             <?php foreach ($productos as $producto): ?>
-                <?php if ($producto['categoria_id'] == 1): ?>
+                <?php if($producto['activo'] == 'SI' && $producto['categoria_id'] == 1): ?>
 
                     <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
                         <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
@@ -34,7 +34,7 @@
     <div class="products-preview">
 
         <?php foreach ($productos as $producto): ?>
-            <?php if ($producto['categoria_id'] == 1): ?>
+                <?php if($producto['activo'] == 'SI' && $producto['categoria_id'] == 1): ?>
 
                 <div class="preview" data-target="p-<?php echo $producto['id_producto']; ?>">
                     <i class="fas fa-times"></i>
@@ -59,7 +59,7 @@
                         
                         <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
                         <input type="hidden" name="qty" value="1">
-                        <input type="hidden" name="price" value="<?php echo $producto['precio_vta']; ?>">
+                        <input type="hidden" name="price-seccion" value="<?php echo $producto['precio_vta']; ?>">
                         <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
                         <button type="submit" class="buy">comprar ahora</button>
                     </form>
@@ -70,12 +70,12 @@
                         <input type="hidden" name="qty" value="1">
                         <input type="hidden" name="price" value="<?php echo $producto['precio_vta']; ?>">
                         <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
-                        <button type="submit" class="cart">añadir al carrito</button>
+                        <button type="submit" class="cart-add">añadir al carrito</button>
                     </form>
                     </div>
                 </div>
-
-            <?php endif; ?>
+                
+                <?php endif; ?>
         <?php endforeach; ?>
 
     </div>
@@ -85,15 +85,27 @@
 
    <div class="fila">
          
-        <form action="">
-            <input type="text" placeholder="Nombre" class="box" required>
-            <input type="text" placeholder="Producto" class="box" required>
-            <textarea name="" class="box" placeholder="Mensaje..." id="" cols="30" rows="10" required></textarea>
+        <form action="<?php echo base_url('consultas/saveP'); ?>" method="post">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="box" required>
+            <input type="text" name="producto" id="nombre" placeholder="Producto" class="box" required>
+            <textarea type="text" name="mensaje" id="mensaje" class="box" placeholder="Mensaje..." id="" cols="30" rows="10" required></textarea>
             <input type="submit" value="Enviar" class="btn">
-            <input type="submit" value="Limpiar" class="btn">
+            <input type="submit" value="Limpiar" onclick="borrarTextArea()" class="btn">
         </form>
 
     </div>
+
+    <script>
+        function borrarTextArea() {
+            // Obtener todos los campos de texto en el formulario
+            var camposTexto = document.querySelectorAll('input[type="text"]');
+
+            // Iterar sobre cada campo de texto y limpiar su contenido
+            camposTexto.forEach(function(campo) {
+                campo.value = '';
+            });
+        }
+    </script>
 
 <?php endif; ?>
 </section>

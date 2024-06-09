@@ -48,31 +48,32 @@ $routes->get('registro', 'Home::registro');
 
 
 //Rutas para el controlador de productos
-$routes->get('productos', 'productos_controller::index'); // Mostrar lista de producto
-$routes->get('productos/create', 'productos_controller::create'); // Mostrar formulario para crear producto
-$routes->post('productos/store', 'productos_controller::store'); // Almacenar nuevo producto
-$routes->get('productos/edit/(:num)', 'productos_controller::edit/$1'); // Mostrar formulario para editar producto
-$routes->post('productos/update/(:num)', 'productos_controller::update/$1'); // Actualizar productos
-$routes->get('productos/delete/(:num)', 'productos_controller::delete/$1'); // Eliminar productos
+$routes->get('productos', 'productos_controller::index', ['filter' => 'authAdmin']); // Mostrar lista de producto
+$routes->get('productos/create', 'productos_controller::create', ['filter' => 'authAdmin']); // Mostrar formulario para crear producto
+$routes->post('productos/store', 'productos_controller::store', ['filter' => 'authAdmin']); // Almacenar nuevo producto
+$routes->get('productos/edit/(:num)', 'productos_controller::edit/$1', ['filter' => 'authAdmin']); // Mostrar formulario para editar producto
+$routes->post('productos/update/(:num)', 'productos_controller::update/$1', ['filter' => 'authAdmin']); // Actualizar productos
+$routes->get('productos/delete/(:num)', 'productos_controller::delete/$1', ['filter' => 'authAdmin']); // Eliminar productos
 
 /*rutas para el manejo de usuarios*/
-$routes->get('usuarios', 'usuarios_controller::index'); // Mostrar lista de usuarios
-$routes->get('usuarios/create', 'usuarios_controller::create'); // Mostrar formulario para crear usuario
-$routes->post('usuarios/store', 'usuarios_controller::store'); // Almacenar nuevo usuario
-$routes->get('usuarios/edit/(:num)', 'usuarios_controller::edit/$1'); // Mostrar formulario para editar usuario
-$routes->post('usuarios/update/(:num)', 'usuarios_controller::update/$1'); // Actualizar usuario
-$routes->get('usuarios/delete/(:num)', 'usuarios_controller::delete/$1'); // Eliminar usuario
+$routes->get('usuarios', 'usuarios_controller::index', ['filter' => 'authAdmin']); // Mostrar lista de usuarios
+$routes->get('usuarios/create', 'usuarios_controller::create', ['filter' => 'authAdmin']); // Mostrar formulario para crear usuario
+$routes->post('usuarios/store', 'usuarios_controller::store', ['filter' => 'authAdmin']); // Almacenar nuevo usuario
+$routes->get('usuarios/edit/(:num)', 'usuarios_controller::edit/$1', ['filter' => 'authAdmin']); // Mostrar formulario para editar usuario
+$routes->post('usuarios/update/(:num)', 'usuarios_controller::update/$1', ['filter' => 'authAdmin']); // Actualizar usuario
+$routes->get('usuarios/delete/(:num)', 'usuarios_controller::delete/$1', ['filter' => 'authAdmin']); // Eliminar usuario
 
 /*rutas para el manejo del carrito*/
 $routes->get('catalogo/(:num)', 'carrito_controller::catalogo/$1'); // Para ver el catálogo según categoría
 $routes->get('catalogo', 'carrito_controller::catalogo'); // Para ver el catálogo por defecto
 
-$routes->post('carrito/add', 'carrito_controller::add'); // Para agregar al carrito
-$routes->post('carrito/remove/(:any)', 'carrito_controller::remove/$1'); // Para remover del carrito
-$routes->get('carrito/view', 'carrito_controller::view'); // Para ver el carrito
-$routes->post('carrito/checkout', 'carrito_controller::checkout'); // Para realizar la compra
-$routes->get('carrito/vaciar', 'carrito_controller::vaciar'); // Para vaciar el carrito
-$routes->post('carrito/actualizar', 'carrito_controller::actualizar'); // Para actualizar el carrito
+$routes->post('carrito/add', 'carrito_controller::add', ['filter' => 'authUser']); // Para agregar al carrito
+$routes->post('carrito/remove/(:any)', 'carrito_controller::remove/$1', ['filter' => 'authUser']); // Para remover del carrito
+$routes->get('carrito/view', 'carrito_controller::view', ['filter' => 'authUser']); // Para ver el carrito
+$routes->post('carrito/checkout', 'carrito_controller::checkout', ['filter' => 'authUser']); // Para realizar la compra
+$routes->post('carrito/vaciar', 'carrito_controller::vaciar', ['filter' => 'authUser']); // Para vaciar el carrito
+$routes->post('carrito/actualizar', 'carrito_controller::actualizar', ['filter' => 'authUser']); // Para actualizar el carrito
+$routes->get('carrito/proceder', 'carrito_controller::proceder', ['filter' => 'authUser']); // carga la vista checkout
 
 /*rutas para el inicio de sesion*/
 $routes->get('/login', 'login_controller::index');
@@ -80,12 +81,13 @@ $routes->post('/login/auth', 'login_controller::auth');
 $routes->get('/logout', 'login_controller::logout');
 
 /*rutas del Registro de Usuarios*/
-$routes->get('/registro','registro_controller::create', ['filter' => 'authAdmin']);
+$routes->get('/registro','registro_controller::create');
 $routes->post('/enviar-form','registro_controller::formValidation');
 
 /*Consultas*/
-$routes->get('consultas', 'consultas_controller::index');
+$routes->get('consultas', 'consultas_controller::index', ['filter' => 'authAdmin']);
 $routes->post('consultas/save', 'consultas_controller::save');
+$routes->post('consultas/saveP', 'consultas_controller::saveP');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="<?= base_url('/assets/css/footer.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/acercaDe.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/contacto.css') ?>">
-        <link rel="stylesheet" href="<?= base_url('/assets/css/productos.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('/assets/css/productos_v.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/urnas.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/joyeria.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/fotografia.css') ?>">
@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="<?= base_url('/assets/css/registro.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/consultas.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/carrito.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('/assets/css/checkout_v.css') ?>">
 
         <link rel="stylesheet" href="<?= base_url('/assets/css/productos/addNewP.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/productos/editP.css') ?>">

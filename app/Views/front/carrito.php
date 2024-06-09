@@ -48,9 +48,23 @@
                 <p>No hay artículos en el carrito</p>
             <?php endif; ?>
 
-        </div>
+        <!---vaciar carrito--->
+        <?php if(!empty($productos)):?>
+            <a style="border-radius: 10px; padding-left: 10px; padding-right: 10px; display: inline-flex; text-align: center; height: 40px; line-height: 35px; background-color: tomato; color: white; text-decoration: none; border: dotted;"
+             href="<?php echo base_url('/productos_v'); ?>">Seguir Comprando</a>
+             <form action="<?php echo base_url('carrito/vaciar'); ?>" method="post" style="display:inline;">
+                <button class="boton-remover" type="submit" >
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <span class="remove">Vaciar</span>
+                </button>
+            </form>
+        <?php endif;?>
+
+    </div>
+
 
         <div class="cart-total">
+
             <?php 
             $subtotal = 0;
             foreach ($productos as $item) {
@@ -60,22 +74,43 @@
             $shipping = 15;
             $total = $subtotal + $shipping;
             ?>
-            <p>
-                <span>Total</span>
-                <span>$<?php echo number_format($total, 2); ?></span>
-            </p>
 
-            <p>
-                <span>Número de Ítems</span>
-                <span><?php echo count($productos); ?></span>
-            </p>
+            <?php if(!empty($productos)):?>
+                <p>
+                    <span>Número de Ítems</span>
+                    <span><?php echo count($productos); ?></span>
+                </p>
 
-            <p>
-                <span>Envío</span>
-                <span>$<?php echo number_format($shipping,2); ?></span> <!-- asumiendo un desc del 10% para mas simplicidad -->
-            </p>
+                <p>
+                    <span>Envío</span>
+                    <span>$<?php echo number_format($shipping,2); ?></span> 
+                </p>
 
-            <a href="<?php echo base_url('carrito/checkout'); ?>">Proceder al Checkout</a>
+                <p>
+                    <span>Total</span>
+                    <span>$<?php echo number_format($total, 2); ?></span>
+                </p>
+
+                <a href="<?php echo base_url('carrito/proceder'); ?>">Proceder al Checkout</a>
+
+            <?php else:?>
+                <p>
+                    <span>Total</span>
+                    <span>$0</span>
+                </p>
+
+                <p>
+                    <span>Número de Ítems</span>
+                    <span>$0</span>
+                </p>
+
+                <p>
+                    <span>Envío</span>
+                    <span>$0</span> 
+                </p>
+
+                <a href="<?php echo base_url('/productos_v'); ?>">Volver al Catálogo</a>
+            <?php endif;?>
 
         </div>
 

@@ -6,13 +6,16 @@ use CodeIgniter\Filters\FilterInterface;
 
 class Auth implements FilterInterface{
     
-    public function before (RequestInterface $request, $arguments = null){
-        
-        if(!session() -> get(logged_in)){
-            return redirect() -> to('/login');
+    public function before(RequestInterface $request, $arguments = null)
+    {
+        $session = session();
+        if (!$session->get('logged_in')) {
+            return redirect()->to('/login')->with('msg', 'Debes iniciar sesion');
         }
     }
 
-    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null){}
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+    }
 
 }

@@ -23,8 +23,14 @@ class Home extends BaseController
 
    public function productos_v() {
 
+      // Instancia del modelo de usuarios
+      $model = new productos_model();
+
+      // Obtener todos los usuarios
+      $data['productos'] = $model->findAll();
+
       echo view('front/header');
-      echo view('productos/productos_v');
+      echo view('productos/productos_v', $data);
       echo view('front/footer');
    }
 
