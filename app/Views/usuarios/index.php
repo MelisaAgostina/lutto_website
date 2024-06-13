@@ -14,7 +14,7 @@
         <!---<a href="<?= base_url('usuarios/create'); ?>" class="btn-crud">Añadir Nuevo</a>--->
         <button class="btn-crud" onclick="window.location.href='<?php echo base_url('usuarios/create'); ?>'">Añadir Nuevo</button>
         
-        <table class="table-usuarios">
+        <table id="myTable" class="table-usuarios">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">ID</th>

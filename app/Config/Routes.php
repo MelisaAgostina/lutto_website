@@ -63,6 +63,10 @@ $routes->get('usuarios/edit/(:num)', 'usuarios_controller::edit/$1', ['filter' =
 $routes->post('usuarios/update/(:num)', 'usuarios_controller::update/$1', ['filter' => 'authAdmin']); // Actualizar usuario
 $routes->get('usuarios/delete/(:num)', 'usuarios_controller::delete/$1', ['filter' => 'authAdmin']); // Eliminar usuario
 
+
+$routes->get('usuarios/editPerfil/(:num)', 'usuarios_controller::editP/$1', ['filter' => 'authUser']); // Mostrar formulario para editar usuario
+$routes->post('usuarios/updatePerfil/(:num)', 'usuarios_controller::updateP/$1', ['filter' => 'authUser']); // Actualizar usuario
+
 /*rutas para el manejo del carrito*/
 $routes->get('catalogo/(:num)', 'carrito_controller::catalogo/$1'); // Para ver el catálogo según categoría
 $routes->get('catalogo', 'carrito_controller::catalogo'); // Para ver el catálogo por defecto
@@ -74,6 +78,12 @@ $routes->post('carrito/checkout', 'carrito_controller::checkout', ['filter' => '
 $routes->post('carrito/vaciar', 'carrito_controller::vaciar', ['filter' => 'authUser']); // Para vaciar el carrito
 $routes->post('carrito/actualizar', 'carrito_controller::actualizar', ['filter' => 'authUser']); // Para actualizar el carrito
 $routes->get('carrito/proceder', 'carrito_controller::proceder', ['filter' => 'authUser']); // carga la vista checkout
+$routes->get('carrito/vercompra', 'Carrito_controller::vercompra', ['filter' => 'authUser']);
+
+/*rutas para los listados de compras */
+$routes->get('admin/compras', 'carrito_controller::verTodasLasCompras',  ['filter' => 'authAdmin']);
+$routes->get('cliente/compras', 'carrito_controller::verHistorialCompras', ['filter' => 'authUser']);
+
 
 /*rutas para el inicio de sesion*/
 $routes->get('/login', 'login_controller::index');

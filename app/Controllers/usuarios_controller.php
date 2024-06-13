@@ -102,6 +102,44 @@ class usuarios_controller extends Controller
         return redirect()->to(base_url('usuarios'));
     }
 
+    public function editP($id)
+    {
+        //Instancia del modelo de usuarios
+        $model = new usuarios_model();
+
+        //Obtener usuario por ID
+        $data['usuario'] = $model->find($id);
+
+        //Cargar vista para editar usuario
+        echo view ('front/header');
+        echo view ('usuarios/misDatos', $data);
+        echo view ('front/footer');
+    }
+
+    public function updateP($id)
+    {
+        // Obtener datos del formulario
+        $data = [
+            'nombre' => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'username' => $this->request->getPost('username'),
+            'email' => $this->request->getPost('email'),
+            'domicilio' => $this->request->getPost('domicilio'),
+            'postal' => $this->request->getPost('postal'),
+            'telefono' => $this->request->getPost('telefono'),
+        ];
+
+        //Instancia del modelo de usuarios
+        $model = new usuarios_model();
+
+        //Actualizar usuario
+        $model->update($id, $data);
+
+        //Redireccionar a la lista de usuarios
+        return redirect()->to(base_url('/'));
+    }
+
+
     public function delete($id)
     {
         // Instancia del modelo de usuarios

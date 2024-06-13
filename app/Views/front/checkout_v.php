@@ -70,42 +70,49 @@
 
 
 <!---columna de tarjeta--->
-        <div class='credit-info'>
-          <div class='credit-info-content'>
+<form class='credit-info' method="post" action="<?php echo base_url('carrito/checkout') ?>">
+              <!-- Mensaje de Error -->
+              <?php if(session()->getFlashdata('msg')):?>
+                <div class="alert alert-warning">
+                    <?= session()->getFlashdata('msg')?>
+                </div>
+            <?php endif;?>
+    <div>
+        <div class='credit-info-content'>
             <table class='half-input-table'>
-              <tr><td>Selecciona una tarjeta: </td>
-              <td><div class='dropdown' id='card-dropdown'>
-
-                <select class='dropdown-btn' id='current-card' name="dropdown-select">
-                        <option value="1">Elegir</option>
-                        <option value="1">Visa</option>
-                        <option value="2">Mastercard</option>
-                        <option value="3">Maestro</option>
-                </select>
-
-              </td></tr>
+                <tr>
+                    <td>Selecciona una tarjeta: </td>
+                    <td>
+                        <div class='dropdown' id='card-dropdown'>
+                            <select name="tipoPago_id" class='dropdown-btn' id='current-card' required>
+                                <option value="">Elegir</option>
+                                <option value="1">Efectivo</option>
+                                <option value="2">Tarjeta de Crédito</option>
+                                <option value="3">Tarjeta de Débito</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
             </table>
-            <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80' class='credit-card-image' id='credit-card-image'></img>
+            <img src="assets/img/visaLogo.png" height='80' class='credit-card-image' id='credit-card-image'></img>
             Número de Tarjeta
-            <input type="number" class='input-field'></input>
+            <input type="number" name="tarjeta" id="tarjeta" class='input-field' required></input>
             Nombre
-            <input type="text" class='input-field'></input>
+            <input type="text" name="nombre" class='input-field' required></input>
             <table class='half-input-table'>
-              <tr>
-                <td> Expira
-                  <input type="date" class='input-field'></input>
-                </td>
-                <td>CVC
-                  <input type="number" class='input-field'></input>
-                </td>
-              </tr>
+                <tr>
+                    <td> Expira
+                        <input type="date" name="expira" class='input-field' required></input>
+                    </td>
+                    <td>CVC
+                        <input type="number" name="cvc" class='input-field' required></input>
+                    </td>
+                </tr>
             </table>
-            <button class='pay-btn'>Checkout</button>
-
-          </div>
-
+            <button type="submit" class='pay-btn'>Checkout</button>
         </div>
-      </div>
+    </div>
+</form>
 </div>
 <?php endif;?>
 </section>

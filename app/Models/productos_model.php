@@ -10,4 +10,5 @@ class productos_model extends Model{
     public function marcarComoBaja($id) {
         return $this->update($id, ['activo' => 'NO']);
     }
+    
 }

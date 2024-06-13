@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-       
+        
         <!---css--->
         <link rel="stylesheet" href="<?= base_url('/assets/css/miestilo.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('/assets/css/datatables.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/venta.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/index.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/footer.css') ?>">
@@ -26,6 +27,9 @@
         <link rel="stylesheet" href="<?= base_url('/assets/css/consultas.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/carrito.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/checkout_v.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('/assets/css/compra.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('/assets/css/listaCompras.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('/assets/css/historialCompras.css') ?>">
 
         <link rel="stylesheet" href="<?= base_url('/assets/css/productos/addNewP.css') ?>">
         <link rel="stylesheet" href="<?= base_url('/assets/css/productos/editP.css') ?>">
@@ -94,7 +98,6 @@
                 animation: slideUp 1s ease-out;
               }
             </style>
-      
     </head>
 
   <body>
@@ -107,6 +110,7 @@
     $session = session();
     $logged_in = $session->get('logged_in');
     $perfil_id = $session->get('perfil_id');
+    $usuario_id = $session->get('id_usuario');
     ?>
 
 <div class="navigation-container">
@@ -117,6 +121,7 @@
 
     <nav class="navbar">
         <?php if($logged_in == 1): ?>
+
             <?php if ($perfil_id == 2): ?>
                 <?php echo anchor('index', 'INICIO') ?>
                 <div class="dropdown">
@@ -124,8 +129,8 @@
                         PERFIL
                     </button>
                     <ul class="dropdown-menu">
-                        <p class="btn"><?php echo anchor('fotografia', 'Historial de Compras') ?></p>
-                        <p class="btn"><?php echo anchor('fotografia', 'Mis datos') ?></p>
+                        <p class="btn"><?php echo anchor('cliente/compras', 'Historial de Compras') ?></p>
+                        <p class="btn"><?php echo anchor(('usuarios/editPerfil/' . $usuario_id) , 'Mis datos') ?></p>
                         <p class="btn"><a href="<?= base_url('/logout') ?>">Cerrar Sesión</a></p>
                     </ul>
                 </div>
@@ -141,6 +146,7 @@
                         <p class="btn"><?php echo anchor('usuarios', 'ABM Usuarios') ?></p>
                         <p class="btn"><?php echo anchor('productos', 'ABM Productos') ?></p>
                         <p class="btn"><?php echo anchor('consultas', 'Consultas') ?></p>
+                        <p class="btn"><?php echo anchor('admin/compras', 'Registro de Compras') ?></p>
                         <p class="btn"><a href="<?= base_url('/logout') ?>">Cerrar Sesión</a></p>
                     </ul>
                 </div>

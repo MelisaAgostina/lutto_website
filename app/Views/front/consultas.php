@@ -13,7 +13,7 @@
         <h3 class="titulo-consultas-generales">Consultas Generales</h3>
     
         
-        <table class="table-productos">
+        <table  class="table-productos">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">Nombre</th>

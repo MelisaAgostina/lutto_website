@@ -21,6 +21,8 @@ class productos_controller extends Controller
         echo view ('front/footer');
     }
 
+    
+
     public function create()
     {
         // Cargar vista para crear un nuevo usuario

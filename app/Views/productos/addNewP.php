@@ -10,7 +10,6 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">Categoría:</label>
-                       <!--- <input type="text" class="form-control" name="categoria_id" placeholder="1 / 2 / 3">--->
                        <select name="categoria_id">
                         <option value="1">Urnas</option>
                         <option value="2">Fotografia</option>

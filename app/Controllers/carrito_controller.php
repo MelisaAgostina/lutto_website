@@ -2,6 +2,9 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\productos_model;
+use App\Models\ventasDetalle_model;
+use App\Models\ventas_model;
+use App\Models\usuarios_model;
 
 class Carrito_controller extends BaseController {
 
@@ -121,20 +124,40 @@ class Carrito_controller extends BaseController {
 
         $data['productos'] = $productos;
 
+        
+        $tipoPago_id = $this->request->getPost('tipoPago_id');
+        $tarjeta = $this->request->getPost('tarjeta');
+        $nombre = $this->request->getPost('nombre');
+        $expira = $this->request->getPost('expira');
+        $cvc = $this->request->getPost('cvc');
+
+        // Validar datos del formulario
+        if (empty($tipoPago_id) || empty($tarjeta) || empty($nombre) || empty($expira) || empty($cvc)) {
+        // Manejar el error aquí, por ejemplo redirigiendo a la página anterior con un mensaje de error
+        return redirect()->back()->with('error', 'Todos los campos son obligatorios.');
+        }
+
+
         // Registra la compra
         $ventasModel = new Ventas_model();
         $ventaId = $ventasModel->insert([
             'fecha' => date('Y-m-d H:i:s'),
             'usuario_id' => $session->get('id_usuario'),
             'total_venta' => $cart->total(),
+            'tipoPago_id' => $tipoPago_id,
+            'tarjeta' => $tarjeta,
+            'nombre' => $nombre,
+            'expira' => $expira,
+            'cvc' => $cvc,
         ]);
 
+
         // Inserta detalles de la venta
-        $ventasDetalleModel = new VentasDetalle_model();
+        $ventasDetalle = new VentasDetalle_model();
         foreach ($productos as $item) {
-            $ventasDetalleModel->insert([
+            $ventasDetalle->insert([
                 'venta' => $ventaId,
-                'producto' => $item['id'],
+                'producto' => $item['id_producto'],
                 'cantidad' => $item['qty'],
                 'precio' => $item['precio_vta'],
             ]);
@@ -148,23 +171,151 @@ class Carrito_controller extends BaseController {
     public function vercompra()
     {
         $session = session();
+    
+        // Obtener el último ID de venta del usuario
         $ventasModel = new Ventas_model();
+        $ultimaVenta = $ventasModel->where('usuario_id', $session->get('id_usuario'))
+                                    ->orderBy('id', 'desc')
+                                    ->first();
+    
+        if (!$ultimaVenta) {
+            // Manejar el error si no se encuentra ninguna venta
+            return redirect()->to('carrito')->with('error', 'No se encontraron compras recientes.');
+        }
+    
+        // Obtener los detalles de la última venta
         $ventasDetalleModel = new VentasDetalle_model();
+        $detallesVenta = $ventasDetalleModel->where('venta', $ultimaVenta['id'])->findAll();
+    
+        // Obtener información de los productos
+        $productosModel = new Productos_model();
+        $productos = [];
+        foreach ($detallesVenta as $detalle) {
+            $producto = $productosModel->find($detalle['producto']);
+            if ($producto) {
+                $producto['cantidad'] = $detalle['cantidad'];
+                $producto['precio'] = $detalle['precio'];
+                $productos[] = $producto;
+            }
+        }
 
-        // Obtén el último registro de ventas del usuario actual
-        $venta = $ventasModel->where('usuario_id', $session->get('id_usuario'))
-                             ->orderBy('fecha', 'desc')
-                             ->first();
-
-        // Obtén los detalles de la venta
-        $ventaDetalles = $ventasDetalleModel->where('venta', $venta['id'])
-                                            ->findAll();
-
-        // Pasa los datos a la vista
+        // Obtener información del usuario
+        $usuarioModel = new Usuarios_model();
+        $usuario = $usuarioModel->find($session->get('id_usuario'));
+    
+        // Preparar datos para la vista
+        $data = [
+            'venta' => $ultimaVenta,
+            'productos' => $productos,
+            'usuario' => $usuario
+        ];
+    
+        // Cargar la vista de compra con los datos de la venta
         echo view('front/header');
-        echo view('front/compra', ['venta' => $venta, 'detalles' => $ventaDetalles]);
+        echo view('front/compra', $data);
         echo view('front/footer');
     }
+    
+    public function verTodasLasCompras(){
+    // Obtener todas las ventas
+    $ventasModel = new Ventas_model();
+    $ventas = $ventasModel->findAll();
+
+      // Verificar que se obtienen las ventas
+      if (empty($ventas)) {
+        echo "No se encontraron ventas.";
+        return;
+    }
+
+    // Obtener detalles de cada venta
+    $ventasDetalleModel = new VentasDetalle_model();
+    $productosModel = new Productos_model();
+    $usuarioModel = new Usuarios_model();
+    
+    $ventasConDetalles = [];
+
+    foreach ($ventas as $venta) {
+        $detallesVenta = $ventasDetalleModel->where('venta', $venta['id'])->findAll();
+        
+        $productos = [];
+        foreach ($detallesVenta as $detalle) {
+            $producto = $productosModel->find($detalle['producto']);
+            if ($producto) {
+                $producto['cantidad'] = $detalle['cantidad'];
+                $producto['precio'] = $detalle['precio'];
+                $productos[] = $producto;
+            }
+        }
+        
+        $usuario = $usuarioModel->find($venta['usuario_id']);
+        
+        $ventasConDetalles[] = [
+            'venta' => $venta,
+            'productos' => $productos,
+            'usuario' => $usuario
+        ];
+    }
+
+    // Preparar datos para la vista
+    $data = [
+        'ventasConDetalles' => $ventasConDetalles
+    ];
+
+    // Cargar la vista de todas las compras con los datos
+    echo view('front/header');
+    echo view('front/listaCompras', $data);
+    echo view('front/footer');
+}
+
+public function verHistorialCompras()
+{
+    $session = session();
+    $usuarioId = $session->get('id_usuario');
+    
+    if (!$usuarioId) {
+        return redirect()->to('login')->with('error', 'Debe iniciar sesión para acceder a su historial de compras.');
+    }
+
+    // Obtener todas las ventas del usuario
+    $ventasModel = new Ventas_model();
+    $ventas = $ventasModel->where('usuario_id', $usuarioId)->findAll();
+
+    // Obtener detalles de cada venta
+    $ventasDetalleModel = new VentasDetalle_model();
+    $productosModel = new Productos_model();
+    
+    $ventasConDetalles = [];
+
+    foreach ($ventas as $venta) {
+        $detallesVenta = $ventasDetalleModel->where('venta', $venta['id'])->findAll();
+        
+        $productos = [];
+        foreach ($detallesVenta as $detalle) {
+            $producto = $productosModel->find($detalle['producto']);
+            if ($producto) {
+                $producto['cantidad'] = $detalle['cantidad'];
+                $producto['precio'] = $detalle['precio'];
+                $productos[] = $producto;
+            }
+        }
+        
+        $ventasConDetalles[] = [
+            'venta' => $venta,
+            'productos' => $productos,
+        ];
+    }
+
+    // Preparar datos para la vista
+    $data = [
+        'ventasConDetalles' => $ventasConDetalles
+    ];
+
+    // Cargar la vista de historial de compras del cliente con los datos
+    echo view('front/header');
+    echo view('usuarios/historialCompras', $data);
+    echo view('front/footer');
+}
+
 
 
     // Función para vaciar el carrito
