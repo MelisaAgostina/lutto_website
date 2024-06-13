@@ -101,7 +101,6 @@
     </head>
 
   <body>
-
 <!---BARRA DE NAVEGACIÓN COMIENZA--->
 <header>
 
@@ -111,6 +110,7 @@
     $logged_in = $session->get('logged_in');
     $perfil_id = $session->get('perfil_id');
     $usuario_id = $session->get('id_usuario');
+    $nombre = $session->get('nombre');
     ?>
 
 <div class="navigation-container">
@@ -153,6 +153,7 @@
                 <?php echo anchor('index', 'INICIO') ?>
                 <?php echo anchor('acercaDe', 'ACERCA DE') ?>
             <?php endif; ?>
+            <p class="msj-bienvenida">Bienvenido, <?= esc($nombre) ?></p>
         <?php else: ?>
             <?php echo anchor('index', 'INICIO') ?>
             <?php echo anchor('login', 'INGRESAR') ?>
@@ -178,5 +179,8 @@
             prevScrollpos = currentScrollPos;
         }
     </script>
-
 </header>
+
+<div class="button-scroll-up">
+    <a href="<?= base_url('/') ?>"><i class="fas fa-arrow-up"></i></a>
+</div>

@@ -1,0 +1,77 @@
+/*NAVBAR*/ 
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #efe9e1;
+    padding: 2rem 9%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  }
+  
+  header .logo img {
+    width: 100%; /* Ajusta este valor según sea necesario */
+    height: auto; /* Mantenimiento de la proporción */
+  }
+  
+  
+  header .logo{
+    max-width: 190px;
+  }
+  
+  header .logo span{
+    color: #1B2C34;
+  }
+  
+  header .navbar a {
+    align-items: end;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Raleway';
+    padding: 0 1.5rem;
+    color:#1B2C34;
+  }
+  
+  .navbar{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.dropdown-menu{
+  width: 350px;
+  padding-top: 15%;
+}
+
+
+
+.navigation-container{
+  width: 100%;
+}
+
+
+  header .navbar a:hover{
+    color:var(--pink);
+  }
+  
+  header #toggler{
+    display: none;
+  }
+  
+  header .fa-paw{
+    font-size: 3rem;
+    color: #1B2C34;
+    border-color: transparent;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .navigation-container {
+    display: flex; /* Utilizamos flexbox para alinear los elementos */
+    align-items: center; /* Centramos verticalmente los elementos */
+    ;
+  }
