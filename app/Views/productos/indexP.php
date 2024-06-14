@@ -44,8 +44,8 @@
                             </td>
                             <td><?= $producto['activo'] ?></td>
                             <td>
-                                <a href="<?= base_url('productos/edit/' . $producto['id_producto']); ?>" class="link-dark">Editar</a>
-                                <a href="<?= base_url('productos/delete/' . $producto['id_producto']); ?>" class="link-dark">Eliminar</a>
+                                <a href="<?= base_url('productos/edit/' . $producto['id_producto']); ?>" class="link-dark"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a href="<?= base_url('productos/delete/' . $producto['id_producto']); ?>" class="link-dark"><i class="fa fa-archive" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -8,10 +8,11 @@
               <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                  <img src="assets/img/carousel1.jpg" class="d-block w-100" alt="...">
+                  <img src="assets/img/carousel4.jpg" class="d-block w-100" alt="...">
                   <div class="carousel-caption carousel-caption-top d-none d-md-block text-start">
                     <h2>ELABORADO CON TERNURA</h2>
                     <p>Bienvenido a Lutto, donde cada producto se elabora con compasión y respeto por la memoria de tu mascota</p>
+                    <button class="navegar"><?php echo anchor('faq', 'Dudas Frecuentes') ?></button>
                   </div>
                 </div>
 
@@ -20,7 +21,7 @@
                   <div class="carousel-caption carousel-caption-top d-none d-md-block text-start">
                     <h2>EXCELENCIA CON CORAZÓN</h2>
                     <p>Descubre nuestro compromiso con la calidad y la compasión mientras te ayudamos a encontrar el tributo perfecto para tu querida mascota.</p>
-                    
+                    <button class="navegar"><?php echo anchor('acercaDe', 'Sobre Nosotros') ?></button>
                   </div>
                 </div>
 
@@ -29,14 +30,16 @@
                   <div class="carousel-caption carousel-caption-top d-none d-md-block text-start">
                     <h2>MEMORIALES A MEDIDA</h2>
                     <p>Explora nuestra variedad de opciones personalizadas, porque cada mascota merece un memorial único y significativo.</p>
+                    <button class="navegar"><?php echo anchor('productos_v', 'Comprar Ahora') ?></button>
                   </div>
                 </div>
 
                 <div class="carousel-item">
-                  <img src="assets/img/carousel4.jpg" class="d-block w-100" alt="...">
+                  <img src="assets/img/carousel1.jpg" class="d-block w-100" alt="...">
                   <div class="carousel-caption carousel-caption-top d-none d-md-block text-start">
                     <h2>VÍNCULOS MÁS ALLÁ DE LAS FRONTERAS</h2>
-                    <p>Únete a nuestra comunidad de amantes de las mascotas y encuentra consuelo compartiendo historias y recuerdos de tus entrañables compañeros.</p>
+                    <p>Únete a nuestra comunidad de amantes de las mascotas y encuentra consuelo compartiendo historias y recuerdos de tus entrañables compañeros.</p>  
+                    <button class="navegar"><?php echo anchor('/registro', 'Registrarse') ?></button>
                   </div>
                 </div>
 

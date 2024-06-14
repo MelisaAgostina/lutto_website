@@ -58,6 +58,42 @@ class consultas_controller extends BaseController{
             $data['msg'] = 'Hubo un problema al guardar la consulta.';
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('msg');
     }
+
+
+public function marcar_leido($id) {
+    $consultModel = new consultas_model();
+
+    // Obtener la consulta por su ID
+    $consulta = $consultModel->find($id);
+
+    // Verificar si la consulta existe
+    if ($consulta === null) {
+        return redirect()->back()->with('error', 'Consulta no encontrada.');
+    }
+
+    $data = ['leido' => 0];
+    $consultModel->update($id, $data);
+
+    return redirect()->back()->with('mensaje', 'Consulta marcada como leída.');
+}
+
+public function marcar_no_leido($id) {
+    $consultModel = new consultas_model();
+
+    // Obtener la consulta por su ID
+    $consulta = $consultModel->find($id);
+
+    // Verificar si la consulta existe
+    if ($consulta === null) {
+        return redirect()->back()->with('error', 'Consulta no encontrada.');
+    }
+
+    $data = ['leido' => 1];
+    $consultModel->update($id, $data);
+
+    return redirect()->back()->with('mensaje', 'Consulta marcada como no leída.');
+}
+
 }

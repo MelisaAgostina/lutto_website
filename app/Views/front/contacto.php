@@ -17,6 +17,14 @@
     <div class="fila">
       
         <form action="<?php echo base_url('consultas/save'); ?>" method="post">
+
+            <!-- Mensaje de Error -->
+            <?php if(session()->getFlashdata('msg')):?>
+                <div class="alert alert-warning">
+                    <?= session()->getFlashdata('msg')?>
+                </div>
+            <?php endif;?>
+
             <input type="text" name="nombre" id="nombre" placeholder="Nombres" class="box" required>
             <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="box" required>
             <input type="text" name="email" id="email" placeholder="Email" class="box" required>

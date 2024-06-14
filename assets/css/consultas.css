@@ -53,6 +53,8 @@
 .table-productos-cuerpo tr:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+
 @media (max-width: 768px) {
     .container-crud-index{
         max-width: 481px;

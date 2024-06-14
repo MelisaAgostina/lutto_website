@@ -34,10 +34,6 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('index', 'Home::index');
 $routes->get('acercaDe', 'Home::acercaDe');
 $routes->get('contacto', 'Home::contacto');
-$routes->get('productos_v', 'Home::productos_v');
-$routes->get('urnas', 'Home::urnas');
-$routes->get('joyeria', 'Home::joyeria');
-$routes->get('fotografia', 'Home::fotografia');
 $routes->get('venta', 'Home::venta');
 $routes->get('privacidad', 'Home::privacidad');
 $routes->get('faq', 'Home::faq');
@@ -45,6 +41,9 @@ $routes->get('login', 'Home::login');
 $routes->get('terminos', 'Home::terminos');
 $routes->get('registro', 'Home::registro');
 
+// $routes->get('urnas', 'Home::urnas');
+// $routes->get('joyeria', 'Home::joyeria');
+// $routes->get('fotografia', 'Home::fotografia');
 
 
 //Rutas para el controlador de productos
@@ -68,8 +67,8 @@ $routes->get('usuarios/editPerfil/(:num)', 'usuarios_controller::editP/$1', ['fi
 $routes->post('usuarios/updatePerfil/(:num)', 'usuarios_controller::updateP/$1', ['filter' => 'authUser']); // Actualizar usuario
 
 /*rutas para el manejo del carrito*/
-$routes->get('catalogo/(:num)', 'carrito_controller::catalogo/$1'); // Para ver el catálogo según categoría
-$routes->get('catalogo', 'carrito_controller::catalogo'); // Para ver el catálogo por defecto
+$routes->get('catalogo', 'CatalogoController::index'); // Para ver el catálogo por defecto
+$routes->get('catalogo/(:num)', 'CatalogoController::categories/$1'); // Para ver el catálogo según categoría
 
 $routes->post('carrito/add', 'carrito_controller::add', ['filter' => 'authUser']); // Para agregar al carrito
 $routes->post('carrito/remove/(:any)', 'carrito_controller::remove/$1', ['filter' => 'authUser']); // Para remover del carrito
@@ -98,6 +97,12 @@ $routes->post('/enviar-form','registro_controller::formValidation');
 $routes->get('consultas', 'consultas_controller::index', ['filter' => 'authAdmin']);
 $routes->post('consultas/save', 'consultas_controller::save');
 $routes->post('consultas/saveP', 'consultas_controller::saveP');
+$routes->get('consultas/leido/(:num)', 'consultas_controller::marcar_leido/$1');
+$routes->get('consultas/noleido/(:num)', 'consultas_controller::marcar_no_leido/$1');
+
+/*paginacion */
+//$routes->get('paginacion', 'Paginacion::paginar');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

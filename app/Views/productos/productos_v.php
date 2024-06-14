@@ -1,6 +1,6 @@
 <section class="products">
 <?php if (isset($productos) && !empty($productos)): ?>
-
+<?php $pager = service('pager');?>
     <!---portada con video de fondo--->
     <div class="portada-productos">
         <video autoplay muted loop poster="assets/img/carousel3.jpg">
@@ -109,6 +109,7 @@
 
             </div>
              <!--- inicia listado de productos--->
+
             <!---productos--->
     <div class="container-productos-general">
         <div class="products-container">
@@ -126,7 +127,11 @@
         </div>
     </div>
 
-
+    <!---enlaces de paginación--->
+    <div class="pagination">
+        <?= $pager->links() ?>
+    </div>
+    
     <!---reviews--->
     <div class="products-preview">
               

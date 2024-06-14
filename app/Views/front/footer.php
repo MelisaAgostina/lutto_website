@@ -9,7 +9,7 @@
         <div class="box-container-footer">
 
             <div class="box-footer">
-                <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
+                <img src="<?= base_url('assets/img/logotresss.png') ?>" alt="">
             </div>
 
             <div class="box-footer">
@@ -32,13 +32,17 @@
                 <?php echo anchor('terminos', 'Términos y Usos') ?>
             </div>
         </div>
-
+        <form class="suscripcion">
+            <label class="susc" for="email">Suscribite para recibir noticias!</label>
+            <input class="susc-input" type="email" value="" name="email" placeholder="Correo">
+            <input class="susc-input" type="submit" value="Subscribir" name="subscribe">
+        </form>
         <div class="creditos">Copyright © 2024 Lutto. Todos los derechos reservados.</div>
     <?php else: ?>
         <div class="box-container-footer">
 
             <div class="box-footer">
-                <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
+                <img src="<?= base_url('assets/img/logotresss.png') ?>" alt="">
             </div>
 
             <div class="box-footer">
@@ -62,7 +66,11 @@
                 <?php echo anchor('terminos', 'Términos y Usos') ?>
             </div>
         </div>
-
+        <form class="suscripcion">
+            <label class="susc" for="email">Suscribite para recibir noticias!</label>
+            <input class="susc-input" type="email" value="" name="email" placeholder="Correo">
+            <input class="susc-input" type="submit" value="Suscribir" name="subscribe">
+        </form>
         <div class="creditos">Copyright © 2024 Lutto. Todos los derechos reservados.</div>
     <?php endif; ?>
 </section>

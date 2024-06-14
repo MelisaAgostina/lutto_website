@@ -15,6 +15,10 @@
   box-shadow: rgba(0, 0, 0, 0.15);
 }
 
+header .dropdown-menu .btn:hover{
+color: #b1b9e4;
+}
+
 /*NAVBAR*/
 header{
   position: fixed;
@@ -29,7 +33,7 @@ header{
 }
 
 header .logo img {
-  width: 100%; /* Ajusta este valor según sea necesario */
+  width: 90%; /* Ajusta este valor según sea necesario */
   height: auto; /* Mantenimiento de la proporción */
 }
 
@@ -91,12 +95,48 @@ header .fa-paw{
   ;
 }
 
-.msj-bienvenida{
+.msj-bienvenida {
+  background: radial-gradient(circle, #b1b9e4, #7f8bc4);
+  background-size: 400% 400%;
+  border-radius: 15px;
+  border-width: 0;
+  border-color: #efe9e1;
+  padding: 4px 7px;
   margin-bottom: 0;
   margin-left: auto;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
   /*CARRUSEL*/
+  .navegar{
+    background: radial-gradient(circle, #d2b1e4, #b66bcf);
+  background-size: 400% 400%;
+    /*background-color: #c85cc977;*/
+    border-radius: 5px;
+    border-color: #ffffff;
+    border-style: solid;
+    padding: 10px;
+    margin-left: 12.7rem;
+    animation: gradientAnimation 4s ease infinite;
+  }
+  .navegar a{
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+  }
   #carouselExampleFade {
     width: 100%; /* El carrusel será tan ancho como la página */
     margin-top: 9%; /* Espacio entre la barra de navegación y el carrusel */
@@ -122,7 +162,7 @@ header .fa-paw{
   /* Estilos generales para mejorar la visibilidad de las captions */
   .carousel-caption p {
     background-color: transparent;
-    margin-left: 6rem;
+    margin-left: 12rem;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
     color: #f1ede7;
     padding: 10px;
@@ -137,7 +177,7 @@ header .fa-paw{
   .carousel-caption h2 {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
     color: #f1ede7;
-    margin-left: 6rem;
+    margin-left: 12rem;
     padding: 10px;
     border-radius: 5px;
     font-family: 'Raleway';
@@ -201,7 +241,10 @@ header .fa-paw{
     }
 
     .msj-bienvenida{
+      background-color: transparent;
       margin-left: 200px;
+      animation: none;
+      background-size: 0%;
     }
   
     header #toggler:checked ~ .navbar{
@@ -262,6 +305,12 @@ header .fa-paw{
       font-size: 1rem; /* Reduce aún más el tamaño del texto en pantallas más pequeñas */
       margin-left: 0;
     }
+    .navegar{
+      margin-left: 10rem;
+    }
+    header .logo img {
+      margin-left: 90px;
+    }
   }
   
   @media (max-width: 450px){
@@ -317,6 +366,14 @@ header .fa-paw{
     }
     .navbar{
       margin-left: 0px;
+    }
+    .navegar{
+      margin-left: 10rem;
+    }
+
+    
+    header .logo img {
+      margin-left: 200px;
     }
   }
 

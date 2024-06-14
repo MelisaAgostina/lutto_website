@@ -33,8 +33,6 @@ class productos_controller extends Controller
 
     public function store()
     {
-
-        
             // Obtener datos del formulario
             $image = $this->request->getFile('imagen');
             if ($image->isValid() && !$image->hasMoved()) {

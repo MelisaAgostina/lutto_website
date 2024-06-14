@@ -7,24 +7,18 @@
 }
 
 .box-container-footer {
-  padding-right: 5%;
-  /*height: 20rem;*/
-  align-items: center;
+  align-items: baseline;
   display: flex;
-  flex-wrap: wrap; /* Para que las cajas se envuelvan en varias líneas si no caben en una sola */
-  justify-content: center; /* Para centrar las cajas horizontalmente dentro del contenedor */
-  margin-bottom: 15px; /* Separación entre las cajas y el texto de créditos */
+  flex-wrap: wrap; 
 }
 
 .box-footer {
-  flex: 1 1 150px; /* Cada caja tendrá un ancho mínimo de 200px */
-  /*padding: 10px;*/
+  flex: 1 1 150px; 
   border: 1px transparent;
   margin-top: 0;
-  margin: 7rem;
+  margin: 0rem 7rem 15px 7rem;
   margin-bottom: 0;
 }
-
 
 .box-container-footer .box-footer a{
   display: block;
@@ -49,16 +43,51 @@
 }
 
 .box-footer img {
+  margin-top: 100px;
   max-width: 300px; /* ajusta el tamaño de la imagen */
   
 }
 
+
 .creditos {
   text-align: center;
-  margin-top: 1%;
+  background: radial-gradient(circle, #fffbf7, #ebc8bb);
+  background-size: 400% 400%;
+  border-radius: 15px;
+  border-width: 0;
+  border-color: #efe9e1;
+  padding: 4px 7px;
   margin-bottom: 2%;
+  margin-top: 1%;
+  animation: gradientAnimation 5s ease infinite;
 }
 
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px){
+
+  .box-footer img {
+    margin-top: 20px;
+    margin-left: 75px;
+    max-width: 200px; /* ajusta el tamaño de la imagen */
+    
+  }
+  .footer-text {
+    margin: 5px 1px;/*-30rpx*/
+    font-size: .9rem;
+  
+  }
+}
 @media (max-width: 450px){
 
 
@@ -66,5 +95,130 @@
     margin: 5px 1px;/*-30rpx*/
     font-size: .9rem;
   
+  }
+}
+/* Especificidad alta para las reglas del newsletter */
+.suscripcion {
+  width: 500px; /* @form-width */
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.suscripcion:after {
+  content: "Ingresa tu email y presiona en suscribir";
+  color: rgb(87, 85, 85); /* @color-lightgray */
+  font-size: 12px;
+}
+
+.suscripcion .susc {
+  color: gray; /* @color-gray */
+  font-size: 18px;
+  display: table-cell;
+  vertical-align: bottom;
+  width: 500px; /* @form-width */
+  height: 40px; /* @label-height */
+}
+.suscripcion .susc:before {
+  content: "\f1d8";
+  font-family: fontAwesome;
+  margin-right: 5px; /* @gutter / 4 */
+  color: gray; /* @color-gray */
+}
+
+.suscripcion .susc-input {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px; /* @gutter / 2 */
+  font: inherit;
+}
+.suscripcion .susc-input[type="email"] {
+  display: block;
+  width: 100%;
+  background-color: white; /* @color-white */
+  border-radius: 10px;
+  border: 1px solid gray; /* @color-gray */
+  margin: 10px 0; /* @input-margin */
+  -webkit-transition: border-color 0.4s ease 0, padding-right 0.2s ease 0.2s;
+  -moz-transition: border-color 0.4s ease 0, padding-right 0.2s ease 0.2s;
+  -o-transition: border-color 0.4s ease 0, padding-right 0.2s ease 0.2s;
+  transition: border-color 0.4s ease 0, padding-right 0.2s ease 0.2s;
+}
+.suscripcion .susc-input[type="email"]:focus {
+  outline: none;
+  border-color: blue; /* @color-primary */
+  padding-right: 120px;
+  -webkit-transition: padding-right 0.2s ease 0 !important;
+  -moz-transition: padding-right 0.2s ease 0 !important;
+  -o-transition: padding-right 0.2s ease 0 !important;
+  transition: padding-right 0.2s ease 0 !important;
+}
+.suscripcion .susc-input[type="email"]:focus + .susc-input[type="submit"] {
+  visibility: visible;
+  opacity: 1;
+  border-color: blue; /* @color-primary */
+}
+
+.suscripcion .susc-input[type="submit"] {
+  border: none;
+  border-left: 1px solid gray; /* @color-gray */
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: blue; /* @color-primary */
+  background-color: inherit;
+  cursor: pointer;
+  position: absolute;
+  right: -1px;
+  top: 50px; /* @label-height + @input-margin */
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease 0;
+  -moz-transition: all 0.4s ease 0;
+  -o-transition: all 0.4s ease 0;
+  transition: all 0.4s ease 0;
+}
+.suscripcion .susc-input[type="submit"]:hover {
+  background-color: blue; /* @color-primary */
+  color: white; /* @color-white */
+}
+
+.suscripcion .susc-input[type="email"]::placeholder {
+  text-transform: capitalize;
+}
+
+.suscripcion .susc-input[type="email"]:-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+.suscripcion .susc-input[type="email"]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; /* @color-white */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .suscripcion, .susc {
+    width: 80%;
+  }
+  .susc{
+    font-size: 15px !important;
+  }
+  .suscripcion .susc-input[type="submit"] {
+    top: 50px; /* Adjust top position for smaller screens */
+    height: 4rem;
+
+  }
+  .suscripcion .susc-input[type="email"]{
+    height: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .suscripcion, .susc {
+    width: 100%;
+  }
+
+  .suscripcion .susc-input[type="submit"] {
+    top: 30px; /* Adjust top position for smaller screens */
+    right: 0;
+    padding: 10px 20px;
   }
 }

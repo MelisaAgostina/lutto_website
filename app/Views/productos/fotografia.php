@@ -1,6 +1,6 @@
 <section class="fotografia">
 <?php if(isset($productos) && !empty($productos)): ?>
-
+<?php $pager = service('pager');?>
     <!---portada--->
     <div class="portada-fotografia">
             <img src="assets/img/fotografia2.jpg" alt="Imagen de portada">
@@ -29,7 +29,9 @@
 
     </div>
 </div>
-
+<div class="pagination">
+        <?= $pager->links() ?>
+    </div>
 
 <!---reviews--->
 <div class="products-preview">
@@ -52,8 +54,24 @@
                 <p class="texto-prod"><?php echo $producto['descripcion']; ?></p>
                 <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                 <div class="buttons">
-                    <a href="#" class="buy">comprar ahora</a>
-                    <a href="#" class="cart">añadir al carrito</a>
+                    <!-- Formulario para "comprar ahora" -->
+                    <form action="<?php echo base_url('carrito/checkout'); ?>" method="post" enctype="multipart/form-data">
+                        
+                        <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
+                        <input type="hidden" name="qty" value="1">
+                        <input type="hidden" name="price-seccion" value="<?php echo $producto['precio_vta']; ?>">
+                        <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
+                        <button type="submit" class="buy">comprar ahora</button>
+                    </form>
+                    <!-- Formulario para "añadir al carrito" -->
+                    <form action="<?php echo base_url('carrito/add'); ?>" method="post" enctype="multipart/form-data">
+                        
+                        <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
+                        <input type="hidden" name="qty" value="1">
+                        <input type="hidden" name="price" value="<?php echo $producto['precio_vta']; ?>">
+                        <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
+                        <button type="submit" class="cart-add">añadir al carrito</button>
+                    </form>
                 </div>
             </div>
 

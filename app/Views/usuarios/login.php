@@ -3,7 +3,7 @@
 
 
     <div class="wrapper">
-        <form method="post" action="<?php echo base_url('/login/auth') ?>">
+        <form method="post" class="login-form" action="<?php echo base_url('/login/auth') ?>">
 
             <h1 class="titulo-login">Iniciar Sesión</h1>
 

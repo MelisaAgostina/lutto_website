@@ -15,29 +15,39 @@ class Carrito_controller extends BaseController {
         $this->cart = \Config\Services::cart();
     }
 
-    public function catalogo($categoria_id = 1) { // Asume categoría por defecto si no se pasa
-        $productos = new productos_model();
-        $data['producto'] = $productos->orderBy('id', 'ASC')->findAll();
+    // public function catalogo($categoria_id = 1) { // Asume categoría por defecto si no se pasa
+    //     $productos = new productos_model();
+    //     $data['productos'] = $productos->findAll();
 
-        echo view('front/header');
+    //     echo view('front/header');
         
-        // Retorna según la categoría
-        switch($categoria_id) {
-            case 1:
-                echo view('productos/urnas', $data);
-                break;
-            case 2:
-                echo view('productos/fotografia', $data);
-                break;
-            case 3:
-                echo view('productos/joyeria', $data);
-                break;
-            default:
-                echo view('productos/productos_v', $data); // Vista general si la categoría no coincide
-        }
+    //     // Retorna según la categoría
+    //     switch($categoria_id) {
+    //         case 1:
+    //             echo view('productos/urnas', $data);
+    //             break;
+    //         case 2:
+    //             echo view('productos/fotografia', $data);
+    //             break;
+    //         case 3:
+    //             echo view('productos/joyeria', $data);
+    //             break;
+    //         default:
+    //             echo view('productos/productos_v', $data); // Vista general si la categoría no coincide
+    //     }
 
-        echo view('front/footer');
-    }
+    //     echo view('front/footer');
+    //     // $model = new productos_model();
+
+    //     // $data = [
+    //     //     'productos' => $model->paginate(5),
+    //     //     'pager' => $model->pager,
+    //     // ];
+
+    //     // echo view('front/header');
+    //     // echo view('productos/productos_v', $data);
+    //     // echo view('front/footer');
+    // }
 
     public function proceder()
     {
@@ -69,8 +79,13 @@ class Carrito_controller extends BaseController {
             );
         
             $this->cart->insert($data);
+
+
+            // Actualizar la cantidad total de ítems en el carrito
+            $totalItems = $this->cart->totalItems();
+            session()->set('totalItems', $totalItems);
         
-            return redirect()->back();//corregir para que redireccione al catalogo donde estaba el usuario
+            return redirect()->back()->with('Ítem añadido al carrito');
     }
 
     public function remove($rowid) {
@@ -162,6 +177,11 @@ class Carrito_controller extends BaseController {
                 'precio' => $item['precio_vta'],
             ]);
         }
+
+        $producto_id = $producto['id_producto'];
+        $cantidad_actual = $model->getCantidad($producto_id);
+
+        $nueva_cantidad = $cantidad_actual - $producto['qty'];
 
         $cart->destroy();
 

@@ -94,7 +94,7 @@
                     </td>
                 </tr>
             </table>
-            <img src="assets/img/visaLogo.png" height='80' class='credit-card-image' id='credit-card-image'></img>
+            <img src="assets/img/tarjeta.png" height='80' class='credit-card-image' id='credit-card-image'></img>
             Número de Tarjeta
             <input type="number" name="tarjeta" id="tarjeta" class='input-field' required></input>
             Nombre
@@ -109,7 +109,7 @@
                     </td>
                 </tr>
             </table>
-            <button type="submit" class='pay-btn'>Checkout</button>
+            <button type="submit" class='pay-btn'>Comprar</button>
         </div>
     </div>
 </form>

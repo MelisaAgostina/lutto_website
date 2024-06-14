@@ -1,6 +1,6 @@
 <section class="urnas">
 <?php if (isset($productos) && !empty($productos)): ?>
-   
+<?php $pager = service('pager');?>
     <!---portada--->
     <div class="portada-urnas">
             <img src="assets/img/portadaurnas.jpg" alt="Imagen de portada">
@@ -29,7 +29,9 @@
         </div>
     </div>
 
-
+    <div class="pagination">
+        <?= $pager->links() ?>
+    </div>
     <!---reviews--->
     <div class="products-preview">
 
@@ -51,11 +53,8 @@
                     <p class="texto-prod"><?php echo $producto['descripcion']; ?></p>
                     <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                     <div class="buttons">
-                        <!---<a href="#" class="buy">comprar ahora</a>
-                        <a href="#" class="cart">añadir al carrito</a>--->
-
                         <!-- Formulario para "comprar ahora" -->
-                    <form action="<?php echo base_url('carrito/checkout'); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url('carrito/proceder'); ?>" method="get" enctype="multipart/form-data">
                         
                         <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
                         <input type="hidden" name="qty" value="1">

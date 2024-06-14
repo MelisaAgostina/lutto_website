@@ -37,8 +37,10 @@
                             <td><?= $usuario['domicilio'] ?></td>
                             <td><?= $usuario['baja'] ?></td>
                             <td>
-                                <a href="<?= base_url('usuarios/edit/' . $usuario['id_usuario']); ?>" class="link-dark">Editar</a>
-                                <a href="<?= base_url('usuarios/delete/' . $usuario['id_usuario']); ?>" class="link-dark">Eliminar</a>
+                                <a href="<?= base_url('usuarios/edit/' . $usuario['id_usuario']); ?>" class="link-dark"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a href="<?= base_url('usuarios/delete/' . $usuario['id_usuario']); ?>" class="link-dark"><i class="fa fa-archive" aria-hidden="true"></i>
+                                </i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

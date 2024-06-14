@@ -17,9 +17,9 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
                     <th scope="col">Email</th>
                     <th scope="col">Mensaje</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,9 +27,17 @@
                     <?php foreach ($consultas as $consulta): ?>
                         <tr>
                             <td><?= $consulta['nombre'] ?></td>
-                            <td><?= $consulta['apellido'] ?></td>
                             <td><?= $consulta['email'] ?></td>
                             <td><?= $consulta['mensaje'] ?></td>
+                             <td>
+                                <?php if ($consulta['leido'] == 1): ?>
+                                  <a class="leido" href="<?php echo site_url('consultas/leido/' . $consulta['id']); ?>" style="color: black;"><i class="fa fa-solid fa-envelope-open"></i></a>
+                                <?php else: ?>
+                                 <a href="<?php echo site_url('consultas/noleido/' . $consulta['id']); ?>" style="color: black;"><i class="fa fa-solid fa-envelope"></i></a>
+                                 <?php endif; ?>
+                                 <a class="leido" href="" style="color: black;"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                            </td>
+
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -48,6 +56,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Mensaje</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +66,14 @@
                             <td><?= $consultap['nombre'] ?></td>
                             <td><?= $consultap['producto'] ?></td>
                             <td><?= $consultap['mensaje'] ?></td>
+                            <td>
+                                <?php if ($consulta['leido'] == 1): ?>
+                                  <a  href="<?php echo site_url('consultas/leido/' . $consulta['id']); ?>" style="color: black;"><i class="fa fa-solid fa-envelope-open"></i></a>
+                                <?php else: ?>
+                                 <a href="<?php echo site_url('consultas/noleido/' . $consulta['id']); ?>" style="color: black;"><i class="fa fa-solid fa-envelope"></i></a>
+                                 <?php endif; ?>
+                                 <a class="leido" href="" style="color: black;"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -67,7 +84,4 @@
             </tbody>
         </table>
     </div>
-
-    
-
 </section>

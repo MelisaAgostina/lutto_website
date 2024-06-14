@@ -5,5 +5,5 @@ use CodeIgniter\Model;
 class consultas_model extends Model{
     protected $table = 'consultas';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'apellido', 'email', 'mensaje'];
+    protected $allowedFields = ['nombre', 'apellido', 'email', 'mensaje', 'leido'];
 }
