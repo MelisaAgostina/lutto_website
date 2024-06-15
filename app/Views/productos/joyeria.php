@@ -15,12 +15,20 @@
 
         <?php foreach ($productos as $producto): ?>
             <?php if($producto['activo'] == 'SI' && $producto['categoria_id'] == 3): ?>
-
+                <?php if ($producto['stock'] >= $producto['stock_min']):?>
                 <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
                     <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
                     <h3 class="nombre-prod"><?php echo $producto['nombre']; ?></h3>
                     <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                 </div>
+                <?php else:?>
+                        <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
+                        <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
+                        <h3 class="nombre-prod"><?php echo $producto['nombre']; ?></h3>
+                        <div class="price">Sin Stock</div>
+                    </div>
+
+                <?php endif;?>
 
             <?php endif; ?>
         <?php endforeach; ?>
@@ -53,15 +61,7 @@
                 <p class="texto-prod"><?php echo $producto['descripcion']; ?></p>
                 <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                 <div class="buttons">
-                    <!-- Formulario para "comprar ahora" -->
-                    <form action="<?php echo base_url('carrito/checkout'); ?>" method="post" enctype="multipart/form-data">
-                        
-                        <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
-                        <input type="hidden" name="qty" value="1">
-                        <input type="hidden" name="price-seccion" value="<?php echo $producto['precio_vta']; ?>">
-                        <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
-                        <button type="submit" class="buy">comprar ahora</button>
-                    </form>
+                <?php if ($producto['stock'] >= $producto['stock_min']):?>
                     <!-- Formulario para "añadir al carrito" -->
                     <form action="<?php echo base_url('carrito/add'); ?>" method="post" enctype="multipart/form-data">
                         
@@ -71,6 +71,9 @@
                         <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
                         <button type="submit" class="cart-add">añadir al carrito</button>
                     </form>
+                    <?php else:?>
+                        <button type="" style="color: grey; cursor: not-allowed" class="cart-add">añadir al carrito</button>
+                    <?php endif; ?>
                 </div>
             </div>
 

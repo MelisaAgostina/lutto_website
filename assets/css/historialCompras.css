@@ -1,3 +1,116 @@
-.historial-compras{
-    min-height: 170vh;
+/* Estilos generales */
+.historial-compras {
+    align-content: center;
+    background-image: url(../img/fondo3.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    padding-top: 15%;
+}
+
+.container-historial {
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transition: transform 0.3s; /* Transición para hover */
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+    animation: slideIn 0.8s forwards; /* Animación de deslizamiento */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container-historial:hover {
+    transform: scale(1.02); /* Efecto de zoom al pasar el mouse por encima */
+}
+
+.titulo-historial {
+    background-color: rgba(216, 168, 183, 0.8); /* D8A8B7 */
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+    font-weight: bold;
+}
+
+.tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow: hidden; /* Para los bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados para la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+}
+
+.thead-historial {
+    background-color: #ca90a2; /* D8A8B7 */
+    color: white;
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+}
+
+.th-historial {
+    background-color: rgba(216, 168, 183, 0.8); /* D8A8B7 */
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px; /* Más padding para más espacio */
+    border: 1px solid #ddd;
+    transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+.td-historial {
+    background-color: #FCF4F0; /* FCF4F0 */
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px; /* Más padding para más espacio */
+    border: 1px solid #ddd;
+    transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+.tr-historial:hover {
+    background-color: rgba(252, 244, 240, 0.5); /* FCF4F0 muy claro cuando se pasa el mouse por encima */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px; /* Añade margen superior para separación */
+}
+
+.pagination a {
+    color: #D8A8B7; /* D8A8B7 */
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover */
+    margin: 0 5px; /* Espaciado entre los enlaces */
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #FCF4F0; /* FCF4F0 */
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse por encima */
 }

@@ -1,3 +1,120 @@
-.compras-admin{
-    min-height: 170vh;
+/* Estilos generales */
+.compras-admin {
+    align-content: center;
+    background-image: url(../img/fondo3.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    padding-top: 15%;
 }
+
+.container-compras {
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    background: beige;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transition: transform 0.3s; /* Transición para hover */
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+    animation: slideIn 1.5s forwards; /* Animación de deslizamiento */
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container-compras:hover {
+    transform: scale(1.02); /* Efecto de zoom al pasar el mouse por encima */
+}
+
+.titulo-compras-reg {
+    background-color: rgba(17, 76, 95, 0.8); /* Eden */
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+    font-weight: bold;
+}
+
+.tabla-compras {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow: hidden; /* Para los bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados para la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+}
+
+.tablehead-compras {
+    background-color: #114c5f; /* Eden */
+    color: white;
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+}
+
+.th-compras {
+    background-color: #326677; /* Eden */
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px; /* Más padding para más espacio */
+    border: 1px solid #ddd;
+    transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+.td-compras {
+    background-color: #9cd2d3; /* Sinbad */
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px; /* Más padding para más espacio */
+    border: 1px solid #ddd;
+    transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+.tr-compras:hover {
+    background-color: rgba(156, 210, 211, 0.5); /* Sinbad muy claro cuando se pasa el mouse por encima */
+}
+
+.out-of-stock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(17, 76, 95, 0.7); /* Fondo Eden transparente */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px; /* Añade margen superior para separación */
+}
+
+.pagination a {
+    color: #114c5f; /* Eden */
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover */
+    margin: 0 5px; /* Espaciado entre los enlaces */
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #9cd2d3; /* Sinbad */
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse por encima */
+}
+

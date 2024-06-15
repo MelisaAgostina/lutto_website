@@ -86,7 +86,6 @@
                         <div class='dropdown' id='card-dropdown'>
                             <select name="tipoPago_id" class='dropdown-btn' id='current-card' required>
                                 <option value="">Elegir</option>
-                                <option value="1">Efectivo</option>
                                 <option value="2">Tarjeta de Crédito</option>
                                 <option value="3">Tarjeta de Débito</option>
                             </select>
@@ -94,7 +93,7 @@
                     </td>
                 </tr>
             </table>
-            <img src="assets/img/tarjeta.png" height='80' class='credit-card-image' id='credit-card-image'></img>
+            <img src="<?= base_url('assets/img/visaLogo.png') ?>" height='80' class='credit-card-image' id='credit-card-image'></img>
             Número de Tarjeta
             <input type="number" name="tarjeta" id="tarjeta" class='input-field' required></input>
             Nombre

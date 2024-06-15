@@ -80,8 +80,8 @@ $routes->get('carrito/proceder', 'carrito_controller::proceder', ['filter' => 'a
 $routes->get('carrito/vercompra', 'Carrito_controller::vercompra', ['filter' => 'authUser']);
 
 /*rutas para los listados de compras */
-$routes->get('admin/compras', 'carrito_controller::verTodasLasCompras',  ['filter' => 'authAdmin']);
-$routes->get('cliente/compras', 'carrito_controller::verHistorialCompras', ['filter' => 'authUser']);
+$routes->get('admin/compras', 'CatalogoController::verTodasLasCompras',  ['filter' => 'authAdmin']);
+$routes->get('cliente/compras', 'CatalogoController::verHistorialCompras', ['filter' => 'authUser']);
 
 
 /*rutas para el inicio de sesion*/

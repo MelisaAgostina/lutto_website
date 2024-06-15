@@ -1,3 +1,102 @@
-.compra{
-    min-height: 170vh;
+/* Estilos existentes */
+.compra {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.container-comprobante {
+    background-image: url(../img/recibo.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-comprobante {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.p-comprobante {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.s-comprobante{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+}
+
+.tabla-comprobante {
+    font-family: 'Courier New', Courier, monospace;
+    background: transparent;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.thead-comprobante {
+    font-family: 'Courier New', Courier, monospace;
+    background: transparent;
+    text-transform: uppercase;
+}
+
+.th-comprobante, .td-comprobante {
+    font-family: 'Courier New', Courier, monospace;
+    /*border: 0.8px dotted #3d3a3a;*/
+    padding: 10px;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.tr-comprobante {
+    border-bottom: 1px dashed #ddd;
+}
+
+.tr-comprobante:last-child {
+    border-bottom: none;
+}
+
+.comprobante {
+    display: block;
+    width: 100%;
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.comprobante:hover {
+    background: #333;
+}
+
+/* Nuevos estilos para centrar el container */
+.main-container {
+    
+    background-image: url(../img/fondo3.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Asegura que ocupa toda la altura de la pantalla */
+    margin-top: 80px; /* Ajusta según la altura de tu header */
 }

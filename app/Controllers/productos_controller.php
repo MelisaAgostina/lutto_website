@@ -100,7 +100,7 @@ class productos_controller extends Controller
             'precio_vta' => $this->request->getPost('precio_vta'),
             'stock' => $this->request->getPost('stock'),
             'stock_min' => $this->request->getPost('stock_min'),
-            'imagen' => $imageName,
+            //'imagen' => $imageName,
         ];
 
         

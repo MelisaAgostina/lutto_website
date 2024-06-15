@@ -1,6 +1,8 @@
 <section class="products">
 <?php if (isset($productos) && !empty($productos)): ?>
 <?php $pager = service('pager');?>
+
+
     <!---portada con video de fondo--->
     <div class="portada-productos">
         <video autoplay muted loop poster="assets/img/carousel3.jpg">

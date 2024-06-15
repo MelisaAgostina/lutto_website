@@ -95,24 +95,24 @@
             <div class="box-container-destacados">
 
                 <div class="box-destacados">
-                    <img src="assets/img/joya1.png" alt="">
-                    <h3 class="subtitulo-destacados">Set de Oro Engravado</h3>
-                    <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos_v', 'ver más') ?></p>
+                    <img src="assets/img/joya4.png" alt="">
+                    <h3 class="subtitulo-destacados">Relicario Corazón</h3>
+                    <p class="texto-destacados">Medallón en forma de corazón con foto personalizada de tu mascota en su interior. Este colgante es perfecto para llevar siempre contigo el recuerdo de tu fiel amigo.</p>
+                    <p class="btn"><?php echo anchor('catalogo', 'ver más') ?></p>
                 </div>
 
                 <div class="box-destacados">
-                    <img src="assets/img/joya 2.png" alt="">
-                    <h3 class="subtitulo-destacados">Locket de Oro</h3>
-                    <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos_v', 'ver más') ?></p>
+                    <img src="assets/img/urna4.png" alt="">
+                    <h3 class="subtitulo-destacados">Casita de Pino</h3>
+                    <p class="texto-destacados">Urna de madera de pino con diseño de casita, incluye espacio para una foto. Ideal para conmemorar a tu mascota de manera cálida.</p>
+                    <p class="btn"><?php echo anchor('catalogo', 'ver más') ?></p>
                 </div>
 
                 <div class="box-destacados">
-                    <img src="assets/img/joya3.png" alt="">
-                    <h3 class="subtitulo-destacados">Colgante</h3>
-                    <p class="texto-destacados">descrip</p>
-                    <p class="btn"><?php echo anchor('productos_v', 'ver más') ?></p>
+                    <img src="assets/img/casting1.png" alt="">
+                    <h3 class="subtitulo-destacados">Casting de Huella</h3>
+                    <p class="texto-destacados">Esculturas de huellas de mascota realizadas mediante proceso de casting, creando una réplica fiel en metal.</p>
+                    <p class="btn"><?php echo anchor('catalogo', 'ver más') ?></p>
                 </div>
 
             </div>
