@@ -15,7 +15,7 @@
    <!---inttorduccion a la seccion prod--->
    <div class='intro-productos'>
               <h2 class="titulo-intro-productos">Descubre Tributos Significativos</h1>
-              <p class="texto-intro-productos">Bienvenido/a a nuestra sección de productos, donde cada artículo está diseñado cuidadosamente para honrar el vínculo especial que compartiste con tu mascota. Explora nuestra colección de memorias conmovedoras elaboradas con cuidado y compasión. Desde elegantes urnas hasta recuerdos personalizados, cada producto es un tributo al amor y compañerismo que vivirá para siempre en tu corazón.</p>
+              <p class="texto-intro-productos">Bienvenido a nuestra sección de productos, donde cada artículo está diseñado cuidadosamente para honrar el vínculo especial que compartiste con tu mascota. Explora nuestra colección de memorias conmovedoras elaboradas con cuidado y compasión. Desde elegantes urnas hasta recuerdos personalizados, cada producto es un tributo al amor y compañerismo que vivirá para siempre en tu corazón.</p>
         </div>
 
    <!---seccion 1--->
@@ -26,24 +26,24 @@
             <div class="box-container-secciones">
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya1.png" alt="">
+                    <img class="sec" src="assets/img/vela2.png" alt="">
                     <h3 class="subtitulo-secciones">Vela</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('urnas', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/1', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya 2.png" alt="">
+                    <img class="sec" src="assets/img/vela1.png" alt="">
                     <h3 class="subtitulo-secciones">Locket de Oro</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('urnas', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/1', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya3.png" alt="">
+                    <img class="sec" src="assets/img/urna4.png" alt="">
                     <h3 class="subtitulo-secciones">Colgante</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('urnas', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/1', 'ver más') ?></p>
                 </div>
 
             </div>
@@ -59,21 +59,21 @@
                     <img class="sec" src="assets/img/joya1.png" alt="">
                     <h3 class="subtitulo-secciones">Set de Oro Engravado</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('fotografia', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/3', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/joya 2.png" alt="">
                     <h3 class="subtitulo-secciones">Locket de Oro</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('fotografia', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/3', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/joya3.png" alt="">
                     <h3 class="subtitulo-secciones">Colgante</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('fotografia', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/3', 'ver más') ?></p>
                 </div>
 
             </div>
@@ -87,41 +87,41 @@
             <div class="box-container-secciones">
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya1.png" alt="">
+                    <img class="sec" src="assets/img/casting1.png" alt="">
                     <h3 class="subtitulo-secciones">Set de Oro Engravado</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('joyeria', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/2', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya 2.png" alt="">
+                    <img class="sec" src="assets/img/foto2.png" alt="">
                     <h3 class="subtitulo-secciones">Locket de Oro</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('joyeria', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/2', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya3.png" alt="">
+                    <img class="sec" src="assets/img/foto1.png" alt="">
                     <h3 class="subtitulo-secciones">Colgante</h3>
                     <p class="texto-secciones">descrip</p>
-                    <p class="btn"><?php echo anchor('joyeria', 'ver más') ?></p>
+                    <p class="btn"><?php echo anchor('catalogo/2', 'ver más') ?></p>
                 </div>
 
             </div>
              <!--- inicia listado de productos--->
-
             <!---productos--->
     <div class="container-productos-general">
+    <h2 class="seccion-titulo" style="font-weight: 600; text-align: center; background: thistle; color: indigo; padding: 0.3%; border-radius: 5px; margin-top: 2rem; margin-bottom: 2rem">Todos los Productos</h2>
+
         <div class="products-container">
-
             <?php foreach ($productos as $producto): ?>
-
+                <?php if($producto['activo'] == 'SI'):?>
                     <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
                         <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
                         <h3 class="nombre-prod"><?php echo $producto['nombre']; ?></h3>
                         <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                     </div>
-
+                <?php endif;?>
             <?php endforeach; ?>
 
         </div>
@@ -136,7 +136,7 @@
     <div class="products-preview">
               
         <?php foreach ($productos as $producto): ?>
-
+            <?php if($producto['activo'] == 'SI'):?>
                 <div class="preview" data-target="p-<?php echo $producto['id_producto']; ?>">
                     <i class="fas fa-times"></i>
                     <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
@@ -175,6 +175,7 @@
                     </form>
                     </div>
                 </div>
+                <?php endif;?>
         <?php endforeach; ?>
 
     </div>

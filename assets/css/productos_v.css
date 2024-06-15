@@ -42,7 +42,7 @@
    }
 
 
-/*SECCIONES DE PRODUCTOS*/
+/*paginacion*/
 .pagination {
    text-align: center;
    margin-top: 20px;
@@ -61,6 +61,7 @@
    border-color: #000000;
 }
 
+/*secciones*/
 .container-secciones-productos .sec{
    /* Estilos para la imagen */
    width: 200px; /* Establece el ancho deseado */
@@ -213,7 +214,7 @@
 }
 
 
-  /*PRODUCTOS*/
+  /*SECCIONES PRODUCTOS*/
   .container-productos-general{
       max-width: 1200px;
       margin:0 auto;

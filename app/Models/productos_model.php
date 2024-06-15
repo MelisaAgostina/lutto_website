@@ -12,15 +12,13 @@ class productos_model extends Model{
     public function marcarComoBaja($id) {
         return $this->update($id, ['activo' => 'NO']);
     }
-    public function getCantidad($id)
-    {
+    
+    public function reducirStock($id, $cantidad) {
         $producto = $this->find($id);
-        return $producto['stock'];
-    }
-
-    public function updateCantidad($id, $nueva_cantidad)
-    {
-        $data = ['stock' => $nueva_cantidad];
-        $this->update($id, $data);
+        if ($producto && $producto['stock'] >= $cantidad) {
+            $nuevoStock = $producto['stock'] - $cantidad;
+            return $this->update($id, ['stock' => $nuevoStock]);
+        }
+        return false; // En caso de que el stock sea insuficiente o el producto no exista
     }
 }

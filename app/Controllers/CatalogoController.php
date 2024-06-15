@@ -49,4 +49,22 @@ class CatalogoController extends BaseController {
 
         echo view('front/footer');
     }
+
+    public function compras() {
+        // Devolver una vista donde muestres links con cada categoría
+        // URNAS -> catalogo/1
+        // Joyas -> catalogo/2
+        // ...
+
+        $model = new ventas_model();
+
+        $data = [
+            'ventas' => $model->paginate(5),
+            'pager' => $model->pager,
+        ];
+
+        echo view('front/header');
+        echo view('front/listaCompras', $data);
+        echo view('front/footer');
+    }
 }

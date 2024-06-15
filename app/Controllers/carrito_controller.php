@@ -85,7 +85,7 @@ class Carrito_controller extends BaseController {
             $totalItems = $this->cart->totalItems();
             session()->set('totalItems', $totalItems);
         
-            return redirect()->back()->with('Ítem añadido al carrito');
+            return redirect()->back()->with('msg','Ítem añadido al carrito');
     }
 
     public function remove($rowid) {
@@ -94,6 +94,9 @@ class Carrito_controller extends BaseController {
         } else {
             $this->cart->remove($rowid);
         }
+
+        $totalItems = 0;
+        session()->set('totalItems', $totalItems) - 1;
 
         return redirect()->back()->withInput();
     }
@@ -178,10 +181,12 @@ class Carrito_controller extends BaseController {
             ]);
         }
 
-        $producto_id = $producto['id_producto'];
-        $cantidad_actual = $model->getCantidad($producto_id);
+        // Actualizar stock del producto
+        $model->reducirStock($item['id_producto'], $item['qty']);
+        
 
-        $nueva_cantidad = $cantidad_actual - $producto['qty'];
+        $totalItems = 0;
+        session()->set('totalItems', $totalItems); 
 
         $cart->destroy();
 
