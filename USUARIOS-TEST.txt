@@ -1,0 +1,12 @@
+Usuarios:
+•	Administrador:
+o	Nombre de Usuario: admin
+o	Contraseña: 123456
+
+•	Cliente:
+o	Nombre de Usuario: cliente
+o	Contraseña: 123456
+
+•	Cliente dado de baja:
+o	Nombre de usuario: LordCommander
+o	Contraseña: 123456
