@@ -354,7 +354,7 @@
       margin-top: 1rem;
    }
    
-   .products-preview .preview .buttons a{
+   .products-preview .preview .buttons a, .cart-add{
       flex:1 1 16rem;
       padding:1rem;
       font-size: 1.8rem;
@@ -362,12 +362,13 @@
       border:.1rem solid #444;
    }
    
-   .products-preview .preview .buttons a.cart{
+   .products-preview .preview .buttons .cart-add{
+      margin-left: 10rem;
       background: #444;
       color:#fff;
    }
    
-   .products-preview .preview .buttons a.cart:hover{
+   .products-preview .preview .buttons .cart-add:hover{
       background: #111;
    }
    

@@ -75,7 +75,7 @@
      }
      
      .container-productos-general .products-container .product img{
-        height: 20rem;
+        height: 19rem;
      }
      
      .container-productos-general .products-container .product:hover img{
@@ -186,19 +186,23 @@
         border:.1rem solid #444;
      }
      
-     .products-preview .preview .buttons a.cart{
-        background: #444;
-        color:#fff;
-     }
-     
-     .products-preview .preview .buttons a.cart:hover{
-        background: #111;
-     }
-     
-     .products-preview .preview .buttons a.buy:hover{
-        background: #444;
-        color:#fff;
-     }
+     .products-preview .preview .buttons a, .cart-add{
+      flex:1 1 16rem;
+      padding:1rem;
+      font-size: 1.8rem;
+      color:#444;
+      border:.1rem solid #444;
+   }
+   
+   .products-preview .preview .buttons .cart-add{
+      margin-left: 10rem;
+      background: #444;
+      color:#fff;
+   }
+   
+   .products-preview .preview .buttons .cart-add:hover{
+      background: #111;
+   }
      
      @media (min-width: 991px) {
        .products-preview{

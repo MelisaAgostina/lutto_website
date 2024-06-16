@@ -1,67 +1,95 @@
-.index-crud{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 140vh;
-    background-image: url("../../img/contact1.jpg") ;
+.consultas{
+    align-content: center;
+    background-image: url(../img/fondo3.jpg);
     background-size: cover;
     background-position: center;
+    padding: 20px;
+    padding-top: 20%;
+    padding-bottom: 20%;
 }
-.container-crud-index{
-    padding-top: 25%;
-    width: 750px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: #5b6df9;  
+.container-consultas{
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
     border-radius: 10px;
-    padding: 30px 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transition: transform 0.3s; /* Transición para hover */
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+    animation: slideIn 0.8s forwards; /* Animación de deslizamiento */
 }
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container-consultas:hover {
+    transform: scale(1.02); /* Efecto de zoom al pasar el mouse por encima */
+}
+.titulo-consultas-generales{
+    background-color: rgba(216, 168, 183, 0.8); /* D8A8B7 */
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+    font-weight: bold;
+}
+
 /*tablas*/
-.table-productos {
+.table-consultas { 
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    color: #000000;
+    margin-bottom: 20px;
+    overflow: hidden; /* Para los bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados para la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
 }
 
-.table-productos th,
-.table-productos td {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px;
+.thead-consultas {
+    background-color: #ca90a2; /* D8A8B7 */
+    color: white;
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+}
+
+.th-consultas{
+    background-color: rgba(216, 168, 183, 0.8); /* D8A8B7 */
+    vertical-align: middle;
     text-align: center;
+    padding: 15px; /* Más padding para más espacio */
+    border: 1px solid #ddd;
+    transition: background-color 0.3s; /* Transición para el efecto hover */
 }
 
-.table-productos th{
-    background-color: #4f494941;
-   
-}
-.table-productos td{
-    background-color: aliceblue;
-}
-.table-productos-cabecera {
-    background-color: #000000;
-    color: #ffffff;
+.td-consultas{
+    background-color: #FCF4F0; /* FCF4F0 */
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px; /* Más padding para más espacio */
+    border: 1px solid #ddd;
+    transition: background-color 0.3s; /* Transición para el efecto hover */
 }
 
-.table-productos-cuerpo tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1);
+.tr-consultas:hover {
+    background-color: rgba(252, 244, 240, 0.5); /* FCF4F0 muy claro cuando se pasa el mouse por encima */
 }
 
-.table-productos-cuerpo tr:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-
-@media (max-width: 768px) {
-    .container-crud-index{
-        max-width: 481px;
-    }
-    .table-productos {
-        width: 70%;
-    }
-    
+li {
+    margin: 5px 0;
 }
 

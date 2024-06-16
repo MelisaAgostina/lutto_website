@@ -92,7 +92,7 @@
             { width: '10%', targets: 5 },
             { width: '20%', targets: 6 }
         ],
-        lengthMenu: [5, 10, 25, 50],
+        lengthMenu: [4, 10, 25, 50],
               language: {
                   "decimal": "",
                   "emptyTable": "No hay datos disponibles en la tabla",

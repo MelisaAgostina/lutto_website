@@ -17,7 +17,7 @@ class CatalogoController extends BaseController {
         $model = new productos_model();
 
         $data = [
-            'productos' => $model->paginate(5),
+            'productos' => $model->paginate(6),
             'pager' => $model->pager,
         ];
 
@@ -29,7 +29,7 @@ class CatalogoController extends BaseController {
     public function categories($categoria_id = 1) {
         $model = new productos_model();
         $data = [
-            'productos' => $model->paginate(5),
+            'productos' => $model->where('categoria_id', $categoria_id)->paginate(6),
             'pager' => $model->pager,
         ];
         

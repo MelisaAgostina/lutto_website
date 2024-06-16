@@ -85,7 +85,7 @@ $routes->get('cliente/compras', 'CatalogoController::verHistorialCompras', ['fil
 
 
 /*rutas para el inicio de sesion*/
-$routes->get('/login', 'login_controller::index');
+$routes->get('/login', 'login_controller::index',['filter' => 'authUser']);
 $routes->post('/login/auth', 'login_controller::auth');
 $routes->get('/logout', 'login_controller::logout');
 

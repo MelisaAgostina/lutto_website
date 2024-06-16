@@ -117,7 +117,7 @@ $totalItems = $session->get('totalItems') ?? 0;
 <input type="checkbox" name="" id="toggler">
 <label for="toggler"><i class="fa fa-paw" aria-hidden="true"></i></label>
 
-<a href="#" class="logo"><img src="<?= base_url('assets/img/logotress.png') ?>" alt="LogoLutto"></a>
+<a href="<?= base_url('/') ?>" class="logo"><img src="<?= base_url('assets/img/logotress.png') ?>" alt="LogoLutto"></a>
 
 <nav class="navbar">
     <?php if($logged_in == 1): ?>

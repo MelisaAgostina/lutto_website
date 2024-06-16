@@ -29,22 +29,22 @@
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/vela2.png" alt="">
-                    <h3 class="subtitulo-secciones">Vela</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <h3 class="subtitulo-secciones">Portavelas de Roble</h3>
+                    <p class="texto-secciones">Urna de madera de roble con portavelas integrado y huella de la mascota grabada.</p>
                     <p class="btn"><?php echo anchor('catalogo/1', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/vela1.png" alt="">
-                    <h3 class="subtitulo-secciones">Locket de Oro</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <h3 class="subtitulo-secciones">Vela Conmemorativa</h3>
+                    <p class="texto-secciones">Vela conmemorativa en frasco de vidrio, personalizable con la foto y nombre de tu mascota.</p>
                     <p class="btn"><?php echo anchor('catalogo/1', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/urna4.png" alt="">
-                    <h3 class="subtitulo-secciones">Colgante</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <h3 class="subtitulo-secciones">Casita de Pino</h3>
+                    <p class="texto-secciones">Urna de madera de pino con diseño de casita, incluye espacio para una foto.</p>
                     <p class="btn"><?php echo anchor('catalogo/1', 'ver más') ?></p>
                 </div>
 
@@ -58,23 +58,23 @@
             <div class="box-container-secciones">
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya1.png" alt="">
-                    <h3 class="subtitulo-secciones">Set de Oro Engravado</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <img class="sec" src="assets/img/joya13.png" alt="">
+                    <h3 class="subtitulo-secciones">Dije con Grabado</h3>
+                    <p class="texto-secciones">Colgantes circulares de oro rosa personalizados con el grabado de la imagen y el nombre de tu mascota.</p>
                     <p class="btn"><?php echo anchor('catalogo/3', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya 2.png" alt="">
-                    <h3 class="subtitulo-secciones">Locket de Oro</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <img class="sec" src="assets/img/joya4.png" alt="">
+                    <h3 class="subtitulo-secciones">Relicario Corazón</h3>
+                    <p class="texto-secciones">Medallón en forma de corazón con foto personalizada de tu mascota en su interior.</p>
                     <p class="btn"><?php echo anchor('catalogo/3', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
-                    <img class="sec" src="assets/img/joya3.png" alt="">
-                    <h3 class="subtitulo-secciones">Colgante</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <img class="sec" src="assets/img/joya10.png" alt="">
+                    <h3 class="subtitulo-secciones">Colgante con Fotografía</h3>
+                    <p class="texto-secciones">Colgante en forma de huella disponible en acabados plateado, dorado y rosado. Personalizable según la foto de tu mascota.</p>
                     <p class="btn"><?php echo anchor('catalogo/3', 'ver más') ?></p>
                 </div>
 
@@ -90,22 +90,22 @@
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/casting1.png" alt="">
-                    <h3 class="subtitulo-secciones">Set de Oro Engravado</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <h3 class="subtitulo-secciones">Casting de Huella</h3>
+                    <p class="texto-secciones">Esculturas de huellas de mascota realizadas mediante proceso de casting. Se utiliza un molde de silicona para capturar cada detalle de la huella.</p>
                     <p class="btn"><?php echo anchor('catalogo/2', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/foto2.png" alt="">
-                    <h3 class="subtitulo-secciones">Locket de Oro</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <h3 class="subtitulo-secciones">Retrato Personalizado</h3>
+                    <p class="texto-secciones">Retrato personalizado de mascotas enmarcado, ideal para honrar a tus queridos compañeros. Incluye una ilustración detallada.</p>
                     <p class="btn"><?php echo anchor('catalogo/2', 'ver más') ?></p>
                 </div>
 
                 <div class="box-seccion">
                     <img class="sec" src="assets/img/foto1.png" alt="">
-                    <h3 class="subtitulo-secciones">Colgante</h3>
-                    <p class="texto-secciones">descrip</p>
+                    <h3 class="subtitulo-secciones">Portarretrato de Cerámico</h3>
+                    <p class="texto-secciones">Portarretrato conmemorativo que incluye una vela, diseñado para honrar la memoria de tu mascota. Personaliza con la foto de tu fiel compañero.</p>
                     <p class="btn"><?php echo anchor('catalogo/2', 'ver más') ?></p>
                 </div>
 
@@ -118,11 +118,19 @@
         <div class="products-container">
             <?php foreach ($productos as $producto): ?>
                 <?php if($producto['activo'] == 'SI'):?>
+                    <?php if ($producto['stock'] >= $producto['stock_min']):?>
                     <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
                         <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
                         <h3 class="nombre-prod"><?php echo $producto['nombre']; ?></h3>
                         <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                     </div>
+                    <?php else:?>
+                        <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
+                        <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
+                        <h3 class="nombre-prod"><?php echo $producto['nombre']; ?></h3>
+                        <div class="price">Sin Stock</div>
+                    </div>
+                    <?php endif;?>
                 <?php endif;?>
             <?php endforeach; ?>
 
@@ -154,18 +162,7 @@
                     <p class="texto-prod"><?php echo $producto['descripcion']; ?></p>
                     <div class="price"><?php echo '$' . $producto['precio_vta']; ?></div>
                     <div class="buttons">
-                        <!---<a href="#" class="buy">comprar ahora</a>
-                        <a href="#" class="cart">añadir al carrito</a>--->
-
-                        <!-- Formulario para "comprar ahora" -->
-                    <form action="<?php echo base_url('carrito/checkout'); ?>" method="post" enctype="multipart/form-data">
-                        
-                        <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
-                        <input type="hidden" name="qty" value="1">
-                        <input type="hidden" name="price" value="<?php echo $producto['precio_vta']; ?>">
-                        <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
-                        <button type="submit" class="buy">comprar ahora</button>
-                    </form>
+                    <?php if ($producto['stock'] >= $producto['stock_min']):?>
                     <!-- Formulario para "añadir al carrito" -->
                     <form action="<?php echo base_url('carrito/add'); ?>" method="post" enctype="multipart/form-data">
                         
@@ -173,8 +170,11 @@
                         <input type="hidden" name="qty" value="1">
                         <input type="hidden" name="price" value="<?php echo $producto['precio_vta']; ?>">
                         <input type="hidden" name="name" value="<?php echo $producto['nombre']; ?>">
-                        <button type="submit" class="cart">añadir al carrito</button>
+                        <button type="submit" class="cart-add">añadir al carrito</button>
                     </form>
+                    <?php else:?>
+                        <button type="" style="color: grey; cursor: not-allowed" class="cart-add">añadir al carrito</button>
+                    <?php endif; ?>
                     </div>
                 </div>
                 <?php endif;?>

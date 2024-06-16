@@ -1,7 +1,5 @@
-<section class="index-crud">
-
-    
-    <div class="container-crud-index">
+<main class="index-usuarios">
+    <div class="container-crud-usuarios">
 
 
         <?php if (isset($msg)): ?>
@@ -15,28 +13,28 @@
         <button class="btn-crud" onclick="window.location.href='<?php echo base_url('usuarios/create'); ?>'">Añadir Nuevo</button>
         
         <table id="myTable" class="table-usuarios">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Baja</th>
-                    <th scope="col">Acciones</th>
+            <thead class="thead-usuarios">
+                <tr class="tr-usuarios">
+                    <th class="th-usuarios">ID</th>
+                    <th class="th-usuarios">Nombre</th>
+                    <th class="th-usuarios">Apellido</th>
+                    <th class="th-usuarios">Email</th>
+                    <th class="th-usuarios">Dirección</th>
+                    <th class="th-usuarios">Baja</th>
+                    <th class="th-usuarios">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (isset($usuarios) && !empty($usuarios)): ?>
                     <?php foreach ($usuarios as $usuario): ?>
-                        <tr>
-                            <td><?= $usuario['id_usuario'] ?></td>
-                            <td><?= $usuario['nombre'] ?></td>
-                            <td><?= $usuario['apellido'] ?></td>
-                            <td><?= $usuario['email'] ?></td>
-                            <td><?= $usuario['domicilio'] ?></td>
-                            <td><?= $usuario['baja'] ?></td>
-                            <td>
+                        <tr class="tr-usuarios">
+                            <td class="td-usuarios"><?= $usuario['id_usuario'] ?></td>
+                            <td class="td-usuarios"><?= $usuario['nombre'] ?></td>
+                            <td class="td-usuarios"><?= $usuario['apellido'] ?></td>
+                            <td class="td-usuarios"><?= $usuario['email'] ?></td>
+                            <td class="td-usuarios"><?= $usuario['domicilio'] ?></td>
+                            <td class="td-usuarios"><?= $usuario['baja'] ?></td>
+                            <td class="td-usuarios">
                                 <a href="<?= base_url('usuarios/edit/' . $usuario['id_usuario']); ?>" class="link-dark"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                 <a href="<?= base_url('usuarios/delete/' . $usuario['id_usuario']); ?>" class="link-dark"><i class="fa fa-archive" aria-hidden="true"></i>
                                 </i>
@@ -45,11 +43,11 @@
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <tr>
-                        <td colspan="6">No hay usuarios disponibles.</td>
+                    <tr class="tr-usuarios">
+                        <td  class="td-usuarios"colspan="6">No hay usuarios disponibles.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
         </table>
     </div>
-</section>
+</main>

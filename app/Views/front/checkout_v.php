@@ -38,7 +38,7 @@
     <!---calculo de costos--->
     <?php 
       $subtotal = 0;
-      $shipping = 15;
+      $shipping = 2000;
 
         foreach ($productos as $item) {
             $subtotal += $item['precio_vta'] * $item['qty'];

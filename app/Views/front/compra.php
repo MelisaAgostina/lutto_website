@@ -4,7 +4,7 @@
             <h1 class="titulo-comprobante">Detalles de la Compra</h1>
             <p class="p-comprobante"><strong class="s-comprobante">Nombre del comprador:</strong> <?= $usuario['nombre'] ?></p>
             <p class="p-comprobante"><strong class="s-comprobante">Fecha de la compra:</strong> <?= $venta['fecha'] ?></p>
-            <p class="p-comprobante"><strong class="s-comprobante">Total de la compra:</strong> $<?= number_format($venta['total_venta'], 2) ?></p>
+            <p class="p-comprobante"><strong class="s-comprobante">Total de la compra:</strong> $<?= number_format($venta['total_venta'], 2) ?> + $2000 (Envío)</p>
             <p class="p-comprobante"><strong class="s-comprobante">Tipo de pago:</strong> <?= $venta['tipoPago_id'] == 1 ? 'Efectivo' : ($venta['tipoPago_id'] == 2 ? 'Tarjeta de Crédito' : 'Tarjeta de Débito') ?></p>
 
             <h2 class="titulo-comprobante">Productos Comprados</h2>

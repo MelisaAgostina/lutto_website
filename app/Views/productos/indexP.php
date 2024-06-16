@@ -1,8 +1,5 @@
-<section class="index-crud">
-
-    
+<main class="index-crud">
     <div class="container-crud-index">
-
 
         <?php if (isset($msg)): ?>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -11,30 +8,29 @@
             </div>
         <?php endif; ?>
         
-        <!---<a href="<?= base_url('productos/create'); ?>" class="btn-crud">Añadir Nuevo</a>--->
         <button class="btn-crud" onclick="window.location.href='<?php echo base_url('productos/create'); ?>'">Añadir Nuevo</button>
         
         <table id="myTable" class="table-productos">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Categoría</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio de Venta</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Activo</th>
-                    <th scope="col">Acciones</th>
+            <thead class="thead-productos">
+                <tr class="tr-productos">
+                    <th class="th-productos">Categoría</th>
+                    <th class="th-productos">Nombre</th>
+                    <th class="th-productos">Precio de Venta</th>
+                    <th class="th-productos">Stock</th>
+                    <th class="th-productos">Imagen</th>
+                    <th class="th-productos">Activo</th>
+                    <th class="th-productos">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (isset($productos) && !empty($productos)): ?>
                     <?php foreach ($productos as $producto): ?>
-                        <tr>
-                            <td><?= $producto['categoria_id'] ?></td>
-                            <td><?= $producto['nombre'] ?></td>
-                            <td><?php echo '$' . $producto['precio_vta']; ?></td>
-                            <td><?= $producto['stock'] ?></td>
-                            <td>                   
+                        <tr class="tr-productos">
+                            <td class="td-productos"><?= $producto['categoria_id'] ?></td>
+                            <td class="td-productos"><?= $producto['nombre'] ?></td>
+                            <td class="td-productos"><?php echo '$' . $producto['precio_vta']; ?></td>
+                            <td class="td-productos"><?= $producto['stock'] ?></td>
+                            <td class="td-productos">                   
                                 <?php if ($producto['imagen']): ?>
                                  <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="Imagen del producto" style="width: 100px; height: auto;">
                                 <?php else: ?>
@@ -59,4 +55,4 @@
     </div>
 
     
-</section>
+</main>

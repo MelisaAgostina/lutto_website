@@ -14,7 +14,7 @@
     <div class="products-container">
 
         <?php foreach ($productos as $producto): ?>
-            <?php if($producto['activo'] == 'SI' && $producto['categoria_id'] == 3): ?>
+            <?php if($producto['activo'] == 'SI'): ?>
                 <?php if ($producto['stock'] >= $producto['stock_min']):?>
                 <div class="product" data-name="<?php echo 'p-' . $producto['id_producto']; ?>">
                     <img src="<?php echo base_url('public/uploads/' . $producto['imagen']); ?>" alt="">
@@ -44,7 +44,7 @@
 <div class="products-preview">
 
     <?php foreach ($productos as $producto): ?>
-        <?php if($producto['activo'] == 'SI' && $producto['categoria_id'] == 3): ?>
+        <?php if($producto['activo'] == 'SI'): ?>
 
             <div class="preview" data-target="p-<?php echo $producto['id_producto']; ?>">
                 <i class="fas fa-times"></i>

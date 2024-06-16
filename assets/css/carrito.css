@@ -265,6 +265,9 @@
 }
 
 @media screen and (max-width: 700px){
+	.carrito{
+		padding-top: 20%;
+	}
 	.fa{
 
 		margin-right: 5px;
@@ -286,7 +289,7 @@
 
 	.product-carrito > img{
 
-		height: 90px;
+		height: 70px;
 
 		width: 200px;
 

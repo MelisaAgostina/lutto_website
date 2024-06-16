@@ -15,7 +15,7 @@ table.dataTable thead th {
 }
 
 table.dataTable tbody td {
-    background-color: aliceblue;
+    background-color: #FCF4F0; /* FCF4F0 */
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px;
     text-align: center;
@@ -52,7 +52,7 @@ table.dataTable tbody tr:hover {
 }
 
 .dataTables_info, .dataTables_length, .dataTables_filter{
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
 
 }
 .dataTables_info{

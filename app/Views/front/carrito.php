@@ -71,7 +71,7 @@
                 $subtotal += $item['precio_vta'] * $item['qty'];
             }
             
-            $shipping = 15;
+            $shipping = 2000;
             $total = $subtotal + $shipping;
             ?>
 
