@@ -30,7 +30,7 @@
                   <div class="carousel-caption carousel-caption-top d-none d-md-block text-start">
                     <h2>MEMORIALES A MEDIDA</h2>
                     <p>Explora nuestra variedad de opciones personalizadas, porque cada mascota merece un memorial único y significativo.</p>
-                    <button class="navegar"><?php echo anchor('productos_v', 'Comprar Ahora') ?></button>
+                    <button class="navegar"><?php echo anchor('catalogo', 'Comprar Ahora') ?></button>
                   </div>
                 </div>
 
