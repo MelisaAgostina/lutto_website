@@ -211,8 +211,11 @@ class Carrito_controller extends BaseController {
 
     // Función para vaciar el carrito
     public function vaciar() {
+        $totalItems = 0;
+        session()->set('totalItems', $totalItems);
         $this->cart->destroy();
         return redirect()->to('carrito/view');
+
     }
 
     // Función para actualizar el carrito
@@ -227,6 +230,7 @@ class Carrito_controller extends BaseController {
             );
             $this->cart->update($data);
         }
+
 
         return redirect()->to('carrito/view');
     }
