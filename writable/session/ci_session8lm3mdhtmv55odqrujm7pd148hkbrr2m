@@ -1,0 +1,10 @@
+__ci_last_regenerate|i:1718839395;_ci_previous_url|s:49:"http://localhost/proyecto_LezcanoAiraldi/contacto";id_usuario|s:2:"34";nombre|s:6:"melisa";apellido|s:4:"lezc";email|s:15:"melisa@lezc.com";domicilio|s:4:"nada";postal|s:5:"w3400";telefono|s:9:"123456789";username|s:7:"melisa1";perfil_id|s:1:"1";logged_in|i:1;error|s:305:"<!-- DEBUG-VIEW START 1 SYSTEMPATH\Validation\Views\list.php -->
+	<div class="errors" role="alert">
+		<ul>
+					<li>The email field must contain a valid email address.</li>
+					<li>The mensaje field is required.</li>
+				</ul>
+	</div>
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH\Validation\Views\list.php -->
+";__ci_vars|a:3:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";s:21:"_ci_validation_errors";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:4:{s:6:"nombre";s:6:"melisa";s:8:"apellido";s:4:"lezc";s:5:"email";s:2:"dd";s:7:"mensaje";s:2:"  ";}}_ci_validation_errors|a:2:{s:5:"email";s:51:"The email field must contain a valid email address.";s:7:"mensaje";s:30:"The mensaje field is required.";}

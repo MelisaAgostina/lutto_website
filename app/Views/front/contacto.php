@@ -18,17 +18,25 @@
       
         <form action="<?php echo base_url('consultas/save'); ?>" method="post">
 
-            <!-- Mensaje de Error -->
-            <?php if(session()->getFlashdata('msg')):?>
-                <div class="alert alert-warning">
-                    <?= session()->getFlashdata('msg')?>
-                </div>
-            <?php endif;?>
+            <!-- Mensajes de error/exito -->
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('success') ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
 
-            <input type="text" name="nombre" id="nombre" placeholder="Nombres" class="box" required>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="box" required>
-            <input type="text" name="email" id="email" placeholder="Email" class="box" required>
-            <textarea type="text" name="mensaje" id="mensaje" class="box" placeholder="Mensaje..." id="" cols="30" rows="10"></textarea>
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('error') ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
+            <input type="text" name="nombre" id="nombre" value="<?= old('nombre') ?>" placeholder="Nombres" class="box" required>
+            <input type="text" name="apellido" id="apellido" value="<?= old('apellido') ?>" placeholder="Apellidos" class="box" required>
+            <input type="text" name="email" id="email" value="<?= old('email') ?>" placeholder="Email" class="box" required>
+            <textarea type="text" name="mensaje" id="mensaje" value="<?= old('mensaje') ?>" class="box" placeholder="Mensaje..." id="" cols="30" rows="10"></textarea>
             <input type="submit" value="Enviar" class="btn">
             <button type="submit" class="btn" onclick="borrarTextArea()">Limpiar</button>
         </form>

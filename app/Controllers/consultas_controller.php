@@ -21,44 +21,81 @@ class consultas_controller extends BaseController{
 
     }
 
-    public function save(){
-        
-        $model = new consultas_model();
-        
+    public function save()
+    {
+        $validation = \Config\Services::validation();
+    
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'apellido' => $this->request->getPost('apellido'),
             'email' => $this->request->getPost('email'),
             'mensaje' => $this->request->getPost('mensaje')
         ];
-
-        if($model->save($data)){
-            $data['msg'] = 'Consulta guardada exitosamente.';
-        } else {
-            $data['msg'] = 'Hubo un problema al guardar la consulta.';
+    
+        // Configurar las reglas de validación
+        $validation->setRules([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'email' => 'required|valid_email',
+            'mensaje' => 'required'
+        ]);
+    
+        // Validar los datos
+        if (!$validation->withRequest($this->request)->run()) {
+            // Establecer mensaje de error en la sesión con los mensajes de validación
+            session()->setFlashdata('error', $validation->listErrors());
+            return redirect()->to('/contacto')->withInput();
         }
-
+    
+        $model = new consultas_model();
+        
+        if ($model->save($data)) {
+            // Establecer mensaje de éxito en la sesión
+            session()->setFlashdata('success', 'Consulta envíada exitosamente.');
+        } else {
+            // Establecer mensaje de error en la sesión
+            session()->setFlashdata('error', 'Hubo un problema al envíar la consulta.');
+        }
+    
         return redirect()->to('/contacto');
     }
+    
 
 
     public function saveP(){
-        
-        $model = new consultasProd_model();
-        
+
+        $validation = \Config\Services::validation();
+    
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'producto' => $this->request->getPost('producto'),
             'mensaje' => $this->request->getPost('mensaje')
         ];
-
-        if($model->save($data)){
-            $data['msg'] = 'Consulta guardada exitosamente.';
-        } else {
-            $data['msg'] = 'Hubo un problema al guardar la consulta.';
+    
+        // Configurar las reglas de validación
+        $validation->setRules([
+            'nombre' => 'required',
+            'producto' => 'required',
+            'mensaje' => 'required'
+        ]);
+    
+        // Validar los datos
+        if (!$validation->withRequest($this->request)->run()) {
+            session()->setFlashdata('error', $validation->listErrors());
+            return redirect()->back()->withInput();
         }
-
-        return redirect()->back()->with('msg');
+    
+        $model = new consultasProd_model();
+        
+        if ($model->save($data)) {
+            // Establecer mensaje de éxito en la sesión
+            session()->setFlashdata('success', 'Consulta envíada exitosamente.');
+        } else {
+            // Establecer mensaje de error en la sesión
+            session()->setFlashdata('error', 'Hubo un problema al envíar la consulta.');
+        }
+    
+        return redirect()->back();
     }
 
 

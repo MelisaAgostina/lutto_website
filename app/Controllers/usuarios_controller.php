@@ -129,6 +129,8 @@ class usuarios_controller extends Controller
             'telefono' => $this->request->getPost('telefono'),
         ];
 
+        //validar que no este activo y no sea el de la sesion
+
         //Instancia del modelo de usuarios
         $model = new usuarios_model();
 
@@ -142,16 +144,33 @@ class usuarios_controller extends Controller
 
     public function delete($id)
     {
+        // Obtener la instancia de la sesión
+        $session = session();
+    
+        // Obtener la identificación del usuario logueado actualmente
+        $usuarioLogueadoId = $session->get('id_usuario');
+    
+        // Verificar si el usuario a dar de baja es el mismo que el usuario logueado
+        if ($usuarioLogueadoId == $id) {
+            // Establecer el mensaje de error en la sesión
+            $session->setFlashdata('error', 'No puedes dar de baja a una cuenta que se encuentra en uso');
+            // Redireccionar a la lista de usuarios
+            return redirect()->to(base_url('usuarios'));
+        }
+    
         // Instancia del modelo de usuarios
         $model = new usuarios_model();
         
         // Marcar usuario como "de baja"
         $model->marcarComoBaja($id);
-
-        // Redireccionar a la lista de usuarios con mensaje de éxito
-        return redirect()->to(base_url('usuarios'))->with('success', 'Usuario marcado como de baja exitosamente.');
-
+    
+        // Establecer el mensaje de éxito en la sesión
+        $session->setFlashdata('success', 'Usuario marcado dado de baja exitosamente.');
+    
+        // Redireccionar a la lista de usuarios
+        return redirect()->to(base_url('usuarios'));
     }
+    
     
  }
 

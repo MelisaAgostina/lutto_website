@@ -90,10 +90,25 @@
 <div class="fila">
 
          
-        <form action="<?php echo base_url('consultas/saveP'); ?>" method="post">
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="box" required>
-            <input type="text" name="producto" id="nombre" placeholder="Producto" class="box" required>
-            <textarea type="text" name="mensaje" id="mensaje" class="box" placeholder="Mensaje..." id="" cols="30" rows="10" required></textarea>
+    <form action="<?php echo base_url('consultas/saveP'); ?>" method="post">
+        <!-- Mensajes de error/exito -->
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('success') ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('error') ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
+            <input type="text" name="nombre" id="nombre" value="<?= old('nombre') ?>" placeholder="Nombre" class="box" required>
+            <input type="text" name="producto" id="nombre" value="<?= old('producto') ?>" placeholder="Producto" class="box" required>
+            <textarea type="text" name="mensaje" id="mensaje" value="<?= old('mensaje') ?>" class="box" placeholder="Mensaje..." id="" cols="30" rows="10" required></textarea>
             <input type="submit" value="Enviar" class="btn">
             <input type="submit" value="Limpiar" onclick="borrarTextArea()" class="btn">
         </form>

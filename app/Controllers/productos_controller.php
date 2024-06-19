@@ -32,7 +32,8 @@ class productos_controller extends Controller
     }
 
     public function store()
-    {
+    {       //pedir required
+        
             // Obtener datos del formulario
             $image = $this->request->getFile('imagen');
             if ($image->isValid() && !$image->hasMoved()) {
@@ -81,17 +82,21 @@ class productos_controller extends Controller
 
     public function update($id)
     {
-
-        
+        // Instancia del modelo de productos
+        $model = new productos_model();
+    
+        // Obtener datos del producto actual
+        $producto_actual = $model->find($id);
+    
         // Obtener datos del formulario
         $image = $this->request->getFile('imagen');
-            if ($image->isValid() && !$image->hasMoved()) {
-                $imageName = $image->getRandomName();
-                $image->move(ROOTPATH . 'public/uploads', $imageName);
-            } else {
-                $imageName = null; // Manejo de errores si el archivo no es válido
-            }
-
+        if ($image->isValid() && !$image->hasMoved()) {
+            $imageName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads', $imageName);
+        } else {
+            $imageName = $producto_actual['imagen']; // Mantener la imagen actual si no se subió una nueva
+        }
+    
         // Obtener datos del formulario
         $data = [
             'nombre' => $this->request->getPost('nombre'),
@@ -100,24 +105,21 @@ class productos_controller extends Controller
             'precio_vta' => $this->request->getPost('precio_vta'),
             'stock' => $this->request->getPost('stock'),
             'stock_min' => $this->request->getPost('stock_min'),
-            //'imagen' => $imageName,
+            'imagen' => $imageName,
         ];
-
-        
-        // Revisar si el campo para reactivar usuario está presente y marcado
+    
+        // Revisar si el campo para reactivar producto está presente y marcado
         if ($this->request->getPost('activo') === 'NO') {
             $data['activo'] = 'SI';
         }
-
-        //Instancia del modelo de usuarios
-        $model = new productos_model();
-
-        //Actualizar usuario
+    
+        // Actualizar producto
         $model->update($id, $data);
-
-        //Redireccionar a la lista de usuarios
+    
+        // Redireccionar a la lista de productos
         return redirect()->to(base_url('productos'));
     }
+    
 
     public function delete($id)
     {
