@@ -80,13 +80,27 @@ class login_controller extends BaseController
 
 
 
-    public function logout()
+  public function logout()
     {
-        
         $session = session();
+
+        // Obtener el ID del usuario desde la sesión
+        $userId = $session->get('id_usuario');
+
+        // Verificar si el ID del usuario está presente en la sesión
+        if ($userId) {
+            // Crear una instancia del modelo de usuarios
+            $usuariosModel = new usuarios_model();
+
+            // Actualizar el campo logged_in a 0 para el usuario correspondiente
+            $usuariosModel->update($userId, ['logged_in' => 0]);
+        }
+
+        // Destruir la sesión
         $session->destroy();
+
+        // Redirigir a la página principal
         return redirect()->to('/');
     }
-
     
 } 
