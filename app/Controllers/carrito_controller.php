@@ -52,7 +52,8 @@ class Carrito_controller extends BaseController {
             $totalItems = $this->cart->totalItems();
             session()->set('totalItems', $totalItems);
         
-            return redirect()->back()->with('msg','Ítem añadido al carrito');
+            session()->setFlashdata('msg', 'Ítem añadido al carrito');
+            return redirect()->back();
     }
 
     public function remove($rowid) {
@@ -92,12 +93,12 @@ class Carrito_controller extends BaseController {
     {
         $session = session();
         $cart = \Config\Services::cart(); 
-
+    
         // Obtenemos el contenido del carrito
         $carrito = $cart->contents();
         $model = new Productos_model();
         $productos = [];
-
+    
         foreach ($carrito as $item) {
             $producto = $model->find($item['id']);
             if ($producto) {
@@ -106,23 +107,45 @@ class Carrito_controller extends BaseController {
                 $productos[] = $producto;
             }
         }
-
+    
         $data['productos'] = $productos;
-
-        
+    
+        $validation = \Config\Services::validation();
+    
+        $validation->setRules([
+            'tipoPago_id' => 'required',
+            'tarjeta' => 'required|numeric|exact_length[16]',
+            'nombre' => 'required',
+            'cvc' => 'required|numeric|exact_length[3]',
+        ], [
+            'tipoPago_id' => [
+                'required' => 'El tipo de pago es obligatorio.'
+            ],
+            'tarjeta' => [
+                'required' => 'El número de tarjeta es obligatorio.',
+                'numeric' => 'El número de tarjeta debe ser numérico.'
+            ],
+            'nombre' => [
+                'required' => 'El nombre es obligatorio.'
+            ],
+            'cvc' => [
+                'required' => 'El CVC es obligatorio.',
+                'numeric' => 'El CVC debe ser numérico.',
+                'exact_length' => 'El CVC debe tener exactamente 3 dígitos.'
+            ]
+        ]);
+    
+        if (!$this->validate($validation->getRules(), $validation->getErrors())) {
+            // Manejar el error aquí, por ejemplo redirigiendo a la página anterior con un mensaje de error
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+    
         $tipoPago_id = $this->request->getPost('tipoPago_id');
         $tarjeta = $this->request->getPost('tarjeta');
         $nombre = $this->request->getPost('nombre');
         $expira = $this->request->getPost('expira');
         $cvc = $this->request->getPost('cvc');
-
-        // Validar datos del formulario
-        if (empty($tipoPago_id) || empty($tarjeta) || empty($nombre) || empty($expira) || empty($cvc)) {
-        // Manejar el error aquí, por ejemplo redirigiendo a la página anterior con un mensaje de error
-        return redirect()->back()->with('error', 'Todos los campos son obligatorios.');
-        }
-
-
+    
         // Registra la compra
         $ventasModel = new Ventas_model();
         $ventaId = $ventasModel->insert([
@@ -135,8 +158,7 @@ class Carrito_controller extends BaseController {
             'expira' => $expira,
             'cvc' => $cvc,
         ]);
-
-
+    
         // Inserta detalles de la venta
         $ventasDetalle = new VentasDetalle_model();
         foreach ($productos as $item) {
@@ -147,18 +169,20 @@ class Carrito_controller extends BaseController {
                 'precio' => $item['precio_vta'],
             ]);
         }
-
+    
         // Actualizar stock del producto
         $model->reducirStock($item['id_producto'], $item['qty']);
         
-
         $totalItems = 0;
         session()->set('totalItems', $totalItems); 
-
+    
         $cart->destroy();
-
+    
+        // Establecer mensaje flash de éxito
+        session()->setFlashdata('success', 'La compra se ha realizado correctamente.');
         return redirect()->to('carrito/vercompra');
     }
+    
 
     public function vercompra()
     {
@@ -220,18 +244,35 @@ class Carrito_controller extends BaseController {
 
     // Función para actualizar el carrito
     public function actualizar() {
+        $this->productosModel = new productos_model();
         $request = \Config\Services::request();
         $cartData = $request->getPost('cart');
 
         foreach ($cartData as $item) {
-            $data = array(
-                'rowid' => $item['rowid'],
-                'qty'   => $item['qty'],
-            );
-            $this->cart->update($data);
+            $producto = $this->productosModel->obtenerProducto($item['id_producto']);
+            if ($producto) {
+                if ($item['qty'] > $producto['stock']) {
+                    // Establecer mensaje flash y redirigir si la cantidad deseada es mayor que el stock disponible
+                    session()->setFlashdata('error', 'La cantidad deseada excede el stock disponible.');
+                    return redirect()->to('carrito/view');
+                } else {
+                    // Actualizar la cantidad en el carrito si la cantidad es válida
+                    $data = array(
+                        'rowid' => $item['rowid'],
+                        'qty'   => $item['qty'],
+                    );
+                    $this->cart->update($data);
+                }
+            } else {
+                // Establecer mensaje flash si el producto no se encuentra
+                session()->setFlashdata('error', 'El producto con ID ' . $item['id_producto'] . ' no se encuentra.');
+                return redirect()->to('carrito/view');
+            }
         }
 
-
+        // Establecer mensaje flash de éxito si todas las cantidades se actualizaron correctamente
+        session()->setFlashdata('success', 'El carrito se ha actualizado correctamente.');
         return redirect()->to('carrito/view');
     }
+    
 }

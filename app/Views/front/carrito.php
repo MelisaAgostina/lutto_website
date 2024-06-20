@@ -1,5 +1,19 @@
 <section class="carrito">
 <div class="container-carrito">
+    
+    <?php if (session()->getFlashdata('msg')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('msg') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('error') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
 
     <h1>Carrito de Compras</h1>
 
@@ -22,16 +36,21 @@
                         </div>
                         <div class="product-options">
                         
-                                <form action="<?php echo base_url('carrito/actualizar'); ?>" method="post" style="display:inline;">
+                        <form action="<?php echo base_url('carrito/actualizar'); ?>" method="post" style="display:inline;">
+                                    
+                                    
+                                
                                     <input type="hidden" name="cart[<?php echo $item['rowid']; ?>][rowid]" value="<?php echo $item['rowid']; ?>">
+                                    <input type="hidden" name="cart[<?php echo $item['rowid']; ?>][id_producto]" value="<?php echo $item['id_producto']; ?>">
                                     <p class="product-quantity">Cantidad:
-                                    <input type="number" name="cart[<?php echo $item['rowid']; ?>][qty]" value="<?php echo $item['qty']; ?>" min="0">
+                                        <input type="number" name="cart[<?php echo $item['rowid']; ?>][qty]" value="<?php echo $item['qty']; ?>" min="0">
                                     </p>
                                     <button class="boton-actualizar" type="submit">
-                                    <i class="fa fa-solid fa-rotate-right"></i>    
-                                    <span>Actualizar</span>
-                                </button>
+                                        <i class="fa fa-solid fa-rotate-right"></i>    
+                                        <span>Actualizar</span>
+                                    </button>
                                 </form>
+                                
                           
                         
                                 <form action="<?php echo base_url('carrito/remove/' . $item['rowid']); ?>" method="post" style="display:inline;">

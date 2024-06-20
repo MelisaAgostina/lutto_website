@@ -21,4 +21,8 @@ class productos_model extends Model{
         }
         return false; // En caso de que el stock sea insuficiente o el producto no exista
     }
+
+    public function obtenerProducto($id) {
+        return $this->find($id);
+    }
 }

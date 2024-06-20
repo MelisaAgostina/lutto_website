@@ -71,12 +71,7 @@
 
 <!---columna de tarjeta--->
 <form class='credit-info' method="post" action="<?php echo base_url('carrito/checkout') ?>">
-              <!-- Mensaje de Error -->
-              <?php if(session()->getFlashdata('msg')):?>
-                <div class="alert alert-warning">
-                    <?= session()->getFlashdata('msg')?>
-                </div>
-            <?php endif;?>
+
     <div>
         <div class='credit-info-content'>
             <table class='half-input-table'>
@@ -95,16 +90,16 @@
             </table>
             <img src="<?= base_url('assets/img/visaLogo.png') ?>" height='80' class='credit-card-image' id='credit-card-image'></img>
             Número de Tarjeta
-            <input type="number" name="tarjeta" id="tarjeta" class='input-field' required></input>
+            <input type="number" name="tarjeta" id="tarjeta" value="<?= old('tarjeta') ?>" class='input-field' required></input>
             Nombre
-            <input type="text" name="nombre" class='input-field' required></input>
+            <input type="text" name="nombre" value="<?= old('nombre') ?>" class='input-field' required></input>
             <table class='half-input-table'>
                 <tr>
                     <td> Expira
-                        <input type="date" name="expira" class='input-field' required></input>
+                        <input type="date" name="expira" value="<?= old('expira') ?>" class='input-field' required></input>
                     </td>
                     <td>CVC
-                        <input type="number" name="cvc" class='input-field' required></input>
+                        <input type="number" name="cvc" value="<?= old('cvc') ?>" class='input-field' required></input>
                     </td>
                 </tr>
             </table>
@@ -114,4 +109,24 @@
 </form>
 </div>
 <?php endif;?>
+
+    
+
+<!-- Mensaje de Error -->
+<?php if (session()->getFlashdata('success')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('success') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('errors')): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+    
 </section>

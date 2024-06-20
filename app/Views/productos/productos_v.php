@@ -14,11 +14,20 @@
         </div>
     </div>
 
+
    <!---inttorduccion a la seccion prod--->
    <div class='intro-productos'>
+    
+   <?php if (session()->getFlashdata('msg')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('msg') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
               <h2 class="titulo-intro-productos">Descubre Tributos Significativos</h1>
               <p class="texto-intro-productos">Bienvenido a nuestra sección de productos, donde cada artículo está diseñado cuidadosamente para honrar el vínculo especial que compartiste con tu mascota. Explora nuestra colección de memorias conmovedoras elaboradas con cuidado y compasión. Desde elegantes urnas hasta recuerdos personalizados, cada producto es un tributo al amor y compañerismo que vivirá para siempre en tu corazón.</p>
-        </div>
+    </div>
 
    <!---seccion 1--->
     <div class="container-secciones-productos">
@@ -113,6 +122,7 @@
              <!--- inicia listado de productos--->
             <!---productos--->
     <div class="container-productos-general">
+
     <h2 class="seccion-titulo" style="font-weight: 600; text-align: center; background: thistle; color: indigo; padding: 0.3%; border-radius: 5px; margin-top: 2rem; margin-bottom: 2rem">Todos los Productos</h2>
 
         <div class="products-container">
@@ -165,7 +175,6 @@
                     <?php if ($producto['stock'] >= $producto['stock_min']):?>
                     <!-- Formulario para "añadir al carrito" -->
                     <form action="<?php echo base_url('carrito/add'); ?>" method="post" enctype="multipart/form-data">
-                        
                         <input type="hidden" name="id" value="<?php echo $producto['id_producto']; ?>">
                         <input type="hidden" name="qty" value="1">
                         <input type="hidden" name="price" value="<?php echo $producto['precio_vta']; ?>">
