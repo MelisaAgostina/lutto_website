@@ -19,11 +19,36 @@
    <div class='intro-productos'>
     
    <?php if (session()->getFlashdata('msg')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('msg') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: relative; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: fadeIn 0.5s;">
+        <div style="display: flex; align-items: center;">
+            <div style="margin-right: 10px; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #28a745; border-radius: 50%; color: white;">
+                <i class="fas fa-check"></i>
+            </div>
+            <div style="flex-grow: 1;">
+                <?= session()->getFlashdata('msg') ?>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="position: absolute; top: 10px; right: 10px; background: none; border: none;">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+    </div>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-close {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+    </style>
     <?php endif; ?>
+
 
               <h2 class="titulo-intro-productos">Descubre Tributos Significativos</h1>
               <p class="texto-intro-productos">Bienvenido a nuestra sección de productos, donde cada artículo está diseñado cuidadosamente para honrar el vínculo especial que compartiste con tu mascota. Explora nuestra colección de memorias conmovedoras elaboradas con cuidado y compasión. Desde elegantes urnas hasta recuerdos personalizados, cada producto es un tributo al amor y compañerismo que vivirá para siempre en tu corazón.</p>

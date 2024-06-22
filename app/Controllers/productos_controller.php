@@ -116,6 +116,9 @@ class productos_controller extends Controller
         // Actualizar producto
         $model->update($id, $data);
     
+        session()->setFlashdata('success', 'Los cambios se guardaron correctamente.');
+
+
         // Redireccionar a la lista de productos
         return redirect()->to(base_url('productos'));
     }
@@ -123,14 +126,20 @@ class productos_controller extends Controller
 
     public function delete($id)
     {
+
+        // Obtener la instancia de la sesión
+        $session = session();
+    
         // Instancia del modelo de usuarios
         $model = new productos_model();
         
         // Marcar usuario como "de baja"
         $model->marcarComoBaja($id);
 
+        $session->setFlashdata('success', 'Producto dado de baja exitosamente.');
+
         // Redireccionar a la lista de usuarios con mensaje de éxito
-        return redirect()->to(base_url('productos'))->with('success', 'Producto marcado como fuera de línea exitosamente.');
+        return redirect()->to(base_url('productos'));
 
     }
     

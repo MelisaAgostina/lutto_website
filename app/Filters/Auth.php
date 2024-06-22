@@ -14,6 +14,8 @@ class Auth implements FilterInterface{
             return redirect()->to('/login')->with('msg', 'Debes iniciar sesion');
         }
 
+        
+
         $id_usuario = $session->get('id_usuario');
         $user = new usuarios_model();
         $user = $user->find($id_usuario);
@@ -22,6 +24,13 @@ class Auth implements FilterInterface{
             $session->destroy();
             return redirect()->to('/login')->with('msg', 'Tu cuenta esta desactivada');
         }
+
+        
+        if (!$user || $user['perfil_id'] == '1') {
+            $session->destroy();
+            return redirect()->to('/login')->with('msg', 'Debes ser cliente para poder realizar una compra');
+        }
+
     }
 
 

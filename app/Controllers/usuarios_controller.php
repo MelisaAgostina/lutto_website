@@ -98,6 +98,9 @@ class usuarios_controller extends Controller
         //Actualizar usuario
         $model->update($id, $data);
 
+        session()->setFlashdata('success', 'Los cambios se guardaron correctamente.');
+
+
         //Redireccionar a la lista de usuarios
         return redirect()->to(base_url('usuarios'));
     }

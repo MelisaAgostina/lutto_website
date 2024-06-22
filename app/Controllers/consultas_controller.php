@@ -89,7 +89,7 @@ class consultas_controller extends BaseController{
         
         if ($model->save($data)) {
             // Establecer mensaje de éxito en la sesión
-            session()->setFlashdata('success', 'Consulta envíada exitosamente.');
+            session()->setFlashdata('success', 'Consulta envíada con éxito.');
         } else {
             // Establecer mensaje de error en la sesión
             session()->setFlashdata('error', 'Hubo un problema al envíar la consulta.');
@@ -113,7 +113,7 @@ public function marcar_leido($id) {
     $data = ['leido' => 0];
     $consultModel->update($id, $data);
 
-    return redirect()->back()->with('mensaje', 'Consulta marcada como leída.');
+    return redirect()->back()->with('success', 'Consulta marcada como no leída.');
 }
 
 public function marcar_no_leido($id) {
@@ -130,7 +130,7 @@ public function marcar_no_leido($id) {
     $data = ['leido' => 1];
     $consultModel->update($id, $data);
 
-    return redirect()->back()->with('mensaje', 'Consulta marcada como no leída.');
+    return redirect()->back()->with('success', 'Consulta marcada como leída.');
 }
 
 }
