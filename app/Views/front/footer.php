@@ -14,7 +14,7 @@
 
             <div class="box-footer">
                 <h3 class="titulo-box-footer">Quick links</h3>
-                <?php echo anchor('productos_v', 'Productos') ?>
+                <?php echo anchor('catalogo', 'Productos') ?>
                 <?php echo anchor('index', 'Inicio') ?>
                 <?php echo anchor('faq', 'Dudas Frecuentes') ?>
                 <?php echo anchor('contacto', 'Contacto') ?>
@@ -35,7 +35,7 @@
         <form class="suscripcion">
             <label class="susc" for="email">Suscribite para recibir noticias!</label>
             <input class="susc-input" type="email" value="" name="email" placeholder="Correo">
-            <input class="susc-input" type="submit" value="Subscribir" name="subscribe">
+            <input class="susc-input" type="submit" value="Suscribir" name="subscribe">
         </form>
         <div class="creditos">Copyright © 2024 Lutto. Todos los derechos reservados.</div>
     <?php else: ?>
@@ -47,7 +47,7 @@
 
             <div class="box-footer">
                 <h3 class="titulo-box-footer">Quick links</h3>
-                <?php echo anchor('productos', 'Productos') ?>
+                <?php echo anchor('catalogo', 'Productos') ?>
                 <?php echo anchor('login', 'Iniciar Sesión') ?>
                 <?php echo anchor('index', 'Inicio') ?>
                 <?php echo anchor('faq', 'Dudas Frecuentes') ?>
