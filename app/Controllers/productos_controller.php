@@ -32,18 +32,38 @@ class productos_controller extends Controller
     }
 
     public function store()
-    {       //pedir required
-        
-            // Obtener datos del formulario
-            $image = $this->request->getFile('imagen');
-            if ($image->isValid() && !$image->hasMoved()) {
-                $imageName = $image->getRandomName();
-                $image->move(ROOTPATH . 'public/uploads', $imageName);
-            } else {
-                $imageName = null; // Manejo de errores si el archivo no es válido
-            }
-
+    {
+        // Validar los datos del formulario
+        $validation = \Config\Services::validation();
+    
+        $validation->setRules([
+            'categoria_id' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required|decimal',
+            'precio_vta' => 'required|decimal',
+            'stock' => 'required|integer',
+            'stock_min' => 'required|integer',
+            'imagen' => 'uploaded[imagen]|is_image[imagen]|max_size[imagen,1024]'
+        ]);
+    
+        if (!$this->validate($validation->getRules())) {
+            // Si la validación falla, redirigir con errores
+            session()->setFlashdata('errors', $validation->getErrors());
+            return redirect()->back()->withInput();
+        }
+    
         // Obtener datos del formulario
+        $image = $this->request->getFile('imagen');
+        if ($image->isValid() && !$image->hasMoved()) {
+            $imageName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads', $imageName);
+        } else {
+            // Manejo de errores si el archivo no es válido
+            session()->setFlashdata('error', 'Error al subir la imagen.');
+            return redirect()->back()->withInput();
+        }
+    
         $data = [
             'categoria_id' => $this->request->getPost('categoria_id'),
             'nombre' => $this->request->getPost('nombre'),
@@ -53,19 +73,22 @@ class productos_controller extends Controller
             'stock' => $this->request->getPost('stock'),
             'stock_min' => $this->request->getPost('stock_min'),
             'imagen' => $imageName,
-            //'imagen' => $this->request->getPost('imagen'),
         ];
-
-         //Instancia del modelo de usuarios
-         $model = new productos_model();
-
-         //Insertar nuevo usuario
-         $model->insert($data);
-
-         //Redireccionar a la lista de usuarios
-         return redirect()->to(base_url('productos'));
+    
+        // Instancia del modelo de productos
+        $model = new productos_model();
+    
+        // Insertar nuevo producto
+        if ($model->insert($data)) {
+            session()->setFlashdata('success', 'Producto creado exitosamente.');
+        } else {
+            session()->setFlashdata('error', 'Error al crear el producto.');
+        }
+    
+        // Redireccionar a la lista de productos
+        return redirect()->to(base_url('productos'));
     }
-
+    
     public function edit($id)
     {
         //Instancia del modelo de usuarios
