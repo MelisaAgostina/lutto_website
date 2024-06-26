@@ -111,6 +111,20 @@ class productos_controller extends Controller
         // Obtener datos del producto actual
         $producto_actual = $model->find($id);
     
+         // Validar los datos del formulario
+         $validation = \Config\Services::validation();
+    
+         $validation->setRules([
+             'nombre' => 'required',
+             'descripcion' => 'required',
+         ]);
+     
+         if (!$this->validate($validation->getRules())) {
+             // Si la validación falla, redirigir con errores
+             session()->setFlashdata('error', 'El nombre y la descripción son obligatorios.');
+             return redirect()->back()->withInput();
+         }
+
         // Obtener datos del formulario
         $image = $this->request->getFile('imagen');
         if ($image->isValid() && !$image->hasMoved()) {

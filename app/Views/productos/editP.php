@@ -7,7 +7,15 @@
 
         <div class="container d-flex justify-content-center">
             <form action="<?php echo base_url('productos/update/' . $producto['id_producto']); ?>" method="post"  enctype="multipart/form-data" class="form-edit" style="padding-left: 7%; min-width:300px;">
-                <div class="row mb-3">
+            
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('error') ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+    
+            <div class="row mb-3">
 
                     <div class="col">
                         <label class="form-label">Nombre:</label>
